@@ -1,0 +1,15 @@
+Package: rAedesSim
+Title: Modeling Aedes Albopictus Mosquito populations by using
+Description: Tools to model the temporal profile of mosquito populations in a determinate location.
+Version: 0.0.1
+License: CC-By
+Author: Alfonso Crisci <a.crisci@ibimet.cnr.it> Marco Selmi
+    <m.selmi@usl2.toscana.it> Gianni Messeri
+    <messeri@toscana.lamma.rete.it> Roberto Vallorani
+    <messeri@toscana.lamma.rete.it> Piero Manfredi
+    <piero.manfredi@unipi.it>
+Maintainer: Alfonso Crisci <a.crisci@ibimet.cnr.it>
+Depends: deSolve,xts,lubridate,sp,leaflet,mgcv,zoo,dygraphs,truncnorm,aTSA,rms.gof
+Imports: truncnorm,aTSA,rms.gof
+Packaged: 2015-03-04 13:18:23 UTC; Alf
+RoxygenNote: 6.0.1
