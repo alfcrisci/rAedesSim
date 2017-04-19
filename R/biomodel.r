@@ -60,7 +60,7 @@ biomodel  <- function(i_biometeo,
 				                      larvae=NA,
 				                      pupae=NA,
 				                      adult=NA,
-						      full_eggs=NA,
+						      neggs_day=NA,
 						      neggs_diap=NA
 				                      );
 	
