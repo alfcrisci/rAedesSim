@@ -55,12 +55,12 @@ biomodel  <- function(i_biometeo,
 			   
 			    Time <- c(0:(time_interval-1));
 		            df_outcome_pop=data.frame(index_day=as.vector(1:i_biometeo$ndays),
-				                      eggs_active=NA,
+				                      eggs=NA,
 				                      diapausant_eggs=NA,
 				                      larvae=NA,
 				                      pupae=NA,
 				                      adult=NA,
-						      eggs_container=NA
+						      full_eggs=NA
 				                      );
 	
 			    df_outcome_pop$eggs[1]=i_biopopulation$eggs;
@@ -196,7 +196,7 @@ biomodel  <- function(i_biometeo,
 				dpupae=as.numeric(aedesmodelday$L4-aedesmodelday$L6-aedesmodelday$L7);
 			        deggs_pop=as.numeric(par_egn*aedesmodelday$L1-aedesmodelday$L2)+i_biopopulation$eggs_diap*i_biometeo$d_emergency[i_day]
 				
-				 neggs_diap_pop=ifelse(deggs_pop>0,0,deggs_pop*i_biometeo$d_induction[i_day]);    
+				neggs_diap_pop=ifelse(deggs_pop>0,0,deggs_pop*i_biometeo$d_induction[i_day]);    
 				
 				
 			          
@@ -219,8 +219,7 @@ biomodel  <- function(i_biometeo,
 				   
 				i_biopopulation$eggs_diap =ifelse(i_biopopulation$eggs_diap<0,0,i_biopopulation$eggs_diap)
 				i_biopopulation$eggs=ifelse(i_biopopulation$eggs<0,0.1,i_biopopulation$eggs);
-				
-				i_biopopulation$eggs=ifelse(i_biopopulation$eggs<5 &as.numeric(format(i_biometeo$dates[i_day],"%j")) >274,i_biopopulation$larvae*1.15,i_biopopulation$eggs)
+				i_biopopulation$eggs=ifelse(i_biopopulation$eggs<2 &as.numeric(format(i_biometeo$dates[i_day],"%j")) >274,i_biopopulation$larvae*1.15,i_biopopulation$eggs)
 				
 				i_biopopulation$larvae=ifelse(i_biopopulation$larvae<0,0,i_biopopulation$larvae);
 			        i_biopopulation$pupae=ifelse(i_biopopulation$pupae<0,0,i_biopopulation$pupae);
