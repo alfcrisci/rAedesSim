@@ -197,7 +197,7 @@ biomodel  <- function(i_biometeo,
 				dpupae=as.numeric(aedesmodelday$L4-aedesmodelday$L6-aedesmodelday$L7);
 			        deggs_pop=as.numeric(par_egn*aedesmodelday$L1-aedesmodelday$L2-aedesmodelday$L3)+i_biopopulation$eggs_diap*i_biometeo$d_emergency[i_day]
 				
-				deggs_diap=as.numeric(ifelse(i_biometeo$d_induction[i_day]>0,deggs_pop*i_biometeo$d_induction[i_day],-i_biopopulation$eggs_diap*i_biometeo$d_emergency[i_day]));
+				deggs_diap=as.numeric(ifelse(i_biometeo$d_induction[i_day]>0,deggs_pop*i_biometeo$d_induction[i_day],-1*i_biopopulation$eggs_diap*i_biometeo$d_emergency[i_day]));
 				
 			        neggs_pop=ifelse(deggs_pop<0,0,deggs_pop);   
 			        neggs_diap_pop=ifelse(deggs_diap<0,0,deggs_diap);    
@@ -229,8 +229,8 @@ biomodel  <- function(i_biometeo,
 				df_outcome_pop[i_day,4]=i_biopopulation$larvae/i_biocontainer$nrecipients;
 				df_outcome_pop[i_day,5]=i_biopopulation$pupae/i_biocontainer$nrecipients;
 			        df_outcome_pop[i_day,6]=i_biopopulation$adults/i_biocontainer$nrecipients;
-				df_outcome_pop[i_day,7]=sum(df_outcome_pop[i_day,2],df_outcome_pop[i_day,3]);
-				df_outcome_pop[i_day,8]=neggs_diap_pop;
+				df_outcome_pop[i_day,7]=sum(df_outcome_pop[i_day,2],neggs_diap_pop/i_biocontainer$nrecipients);
+				df_outcome_pop[i_day,8]=neggs_diap_pop/i_biocontainer$nrecipients;
 				   
 				################################################################# 
 				# update daily parameters
