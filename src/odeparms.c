@@ -61,7 +61,7 @@ odeparms(&N, parms);
 void derivs (int *neq, double *t, double *y, double *ydot, double *yout, int *ip)
 {
 if (ip[0] <1) error("nout should be at least 1");
-  L1=f_ovo_a*sexratio*(N_ini_a+L7-L8)/ deltatime; 
+  L1=f_ovo_a*sexratio*(N_ini_a+L7-L8)-L3/ deltatime; 
   L2=mu*(N_ini_u+(egn*L1))/ deltatime; 
   L3=f_trans_u2l*(N_ini_u+egn*L1-L2)/deltatime; 	
   L4=f_trans_l2p*(N_ini_l+L3-L5)/deltatime; 					  
