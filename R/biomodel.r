@@ -208,7 +208,7 @@ biomodel  <- function(i_biometeo,
 				i_biopopulation$larvae=i_biopopulation$larvae+dlarvae;
 				i_biopopulation$pupae=i_biopopulation$pupae+dpupae;
 				i_biopopulation$adults=i_biopopulation$adults+dadults;          		
-			        i_biopopulation$eggs=i_biopopulation$eggs+deggs_pop-deggs_diap;
+			        i_biopopulation$eggs=i_biopopulation$eggs+deggs_pop;
 				i_biopopulation$eggs_diap=i_biopopulation$eggs_diap+deggs_diap;
 				i_biopopulation$eggs_diap=ifelse(as.numeric(format(i_biometeo$dates[i_day],"%j"))==i_biometeo$datemax,0,i_biopopulation$eggs_diap)
 				#########################################################################################################################################
@@ -229,7 +229,7 @@ biomodel  <- function(i_biometeo,
 				df_outcome_pop[i_day,4]=i_biopopulation$larvae/i_biocontainer$nrecipients;
 				df_outcome_pop[i_day,5]=i_biopopulation$pupae/i_biocontainer$nrecipients;
 			        df_outcome_pop[i_day,6]=i_biopopulation$adults/i_biocontainer$nrecipients;
-				df_outcome_pop[i_day,7]=df_outcome_pop[i_day,2]+sum(neggs_pop,neggs_diap_pop)/i_biocontainer$nrecipients;
+				df_outcome_pop[i_day,7]=df_outcome_pop[i_day,2]+sum(neggs_diap_pop)/i_biocontainer$nrecipients;
 				df_outcome_pop[i_day,8]=neggs_diap_pop/i_biocontainer$nrecipients;
 				   
 				################################################################# 
