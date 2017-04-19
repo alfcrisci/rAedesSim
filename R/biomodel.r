@@ -196,8 +196,7 @@ biomodel  <- function(i_biometeo,
 				dpupae=as.numeric(aedesmodelday$L4-aedesmodelday$L6-aedesmodelday$L7);
 			        deggs_pop=as.numeric(par_egn*aedesmodelday$L1-aedesmodelday$L2)+i_biopopulation$eggs_diap*i_biometeo$d_emergency[i_day]
 				
-				neggs_pop=ifelse(deggs_pop>0,0,deggs_pop*(1-i_biometeo$d_induction[i_day]));   
-			        neggs_diap_pop=ifelse(deggs_pop>0,0,deggs_pop*i_biometeo$d_induction[i_day]);    
+				 neggs_diap_pop=ifelse(deggs_pop>0,0,deggs_pop*i_biometeo$d_induction[i_day]);    
 				
 				
 			          
@@ -207,7 +206,7 @@ biomodel  <- function(i_biometeo,
 				i_biopopulation$larvae=i_biopopulation$larvae+dlarvae;
 				i_biopopulation$pupae=i_biopopulation$pupae+dpupae;
 				i_biopopulation$adults=i_biopopulation$adults+dadults;          		
-			        i_biopopulation$eggs=i_biopopulation$eggs+neggs_pop;
+			        i_biopopulation$eggs=i_biopopulation$eggs+deggs_pop;
 				   
 				   
 				i_biopopulation$eggs_diap=ifelse(i_biometeo$d_emergency[i_day]>0,
