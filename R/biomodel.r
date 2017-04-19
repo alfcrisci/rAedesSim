@@ -55,12 +55,12 @@ biomodel  <- function(i_biometeo,
 			   
 			    Time <- c(0:(time_interval-1));
 		            df_outcome_pop=data.frame(index_day=as.vector(1:i_biometeo$ndays),
-				                      eggs=NA,
+				                      eggs_active=NA,
 				                      diapausant_eggs=NA,
 				                      larvae=NA,
 				                      pupae=NA,
 				                      adult=NA,
-						      neggs_day=NA,
+						      tot_eggs=NA,
 						      neggs_diap=NA
 				                      );
 	
@@ -229,7 +229,7 @@ biomodel  <- function(i_biometeo,
 				df_outcome_pop[i_day,4]=i_biopopulation$larvae/i_biocontainer$nrecipients;
 				df_outcome_pop[i_day,5]=i_biopopulation$pupae/i_biocontainer$nrecipients;
 			        df_outcome_pop[i_day,6]=i_biopopulation$adults/i_biocontainer$nrecipients;
-				df_outcome_pop[i_day,7]=sum(neggs_pop,neggs_diap_pop)/i_biocontainer$nrecipients;
+				df_outcome_pop[i_day,7]=df_outcome_pop[i_day,2]+sum(neggs_pop,neggs_diap_pop)/i_biocontainer$nrecipients;
 				df_outcome_pop[i_day,8]=neggs_diap_pop/i_biocontainer$nrecipients;
 				   
 				################################################################# 
