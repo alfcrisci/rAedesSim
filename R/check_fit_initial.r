@@ -95,11 +95,12 @@ check_fit_initial=function(i_biometeo,
                                            observed,
                                        join = "inner")
                              fig_all$index_day=NULL
+                             fig_all$diapausant_eggs=NULL
                              rmse=accurate(fig_eggs[ini_rmse:end_rmse,1],
                                            fig_eggs[ini_rmse:end_rmse,2],
                                            k=1,output=FALSE)
   
-                             names(fig_eggs)=c("Simulated Eggs/traps","Observed Eggs/Traps")
+                             names(fig_eggs)=c("Simulated Eggs","Observed Eggs")
   
                              resfig=dygraph(fig_eggs,
                                             xlab = "Year", 
