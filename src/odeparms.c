@@ -68,7 +68,7 @@ if (ip[0] <1) error("nout should be at least 1");
   L5=(ml*(N_ini_l+L3-L4)+ alfa_l*powl((L3-L4),2))/deltatime;      
   L6=mp*(N_ini_p+L4-L7)/deltatime;       
   L7=f_trans_p2a *(N_ini_p+L4-L6)/deltatime; 
-  L8=(ma*(N_ini_a+L7-L8)+ alfa_a*(sexratio*(N_ini_a+L7-L8))*(sexratio*(N_ini_a+L7-L8))/deltatime;
+  L8=(ma*(N_ini_a+L7-L8)+ alfa_a*(sexratio*(N_ini_a+L7-L8))*(sexratio*(N_ini_a+L7-L8)))/deltatime;
   
   dL1=L1;dL2=L2;dL3=L3;dL4=L4;dL5=L5;dL6=L6;dL7=L7;dL8=L8;/*hourly derivatives */
       
