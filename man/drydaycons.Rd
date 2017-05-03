@@ -21,7 +21,7 @@ Calculate the sequence of consecutive dry days in function to a certain  treshsh
 \code{weigthdry}
 }
 \author{
-Istituto di Biometeorologia Firenze Italy  Alfonso crisci \email{a.crisci@ibimet.cnr.it} ASL 2 LUCCA Marco Selmi \email{m.selmi@usl2.toscana.it}
+Istituto di Biometeorologia Firenze Italy  Alfonso crisci \email{a.crisci@ibimet.cnr.it} ASL 2 LUCCA Marco Selmi \email{marco.selmi@uslnordovest.toscana.it }
 }
 \keyword{days}
 \keyword{dry}

@@ -8,15 +8,15 @@ biopopulation(eggs = 10000, larvae = 0, pupae = 0, adults = 0,
   eggs_diap = 10, ID = "NA")
 }
 \arguments{
-\item{eggs}{Number  Eggs Count.}
+\item{eggs}{numeric  Eggs Count.}
 
-\item{larvae}{Number Larvae Count.}
+\item{larvae}{numeric Larvae Count.}
 
-\item{pupae}{Number Pupae Count.}
+\item{pupae}{numeric Pupae Count.}
 
-\item{adults}{Number Mosquito Female Actual Count.}
+\item{adults}{numeric Mosquito Female Actual Count.}
 
-\item{eggs_diap}{Number Diapausant Eggs Count.}
+\item{eggs_diap}{numeric Diapausant Eggs Count.}
 
 \item{ID}{character ID label Population.}
 }
@@ -27,6 +27,6 @@ object Return a rAedesim biopopulation object.
 S3 class to describe biomodelday object to be used in rAedesim model.
 }
 \author{
-Alfonso crisci \email{a.crisci@ibimet.cnr.it} Istituto di Biometeorologia Firenze Italy  Marco Selmi  ASL 2 LUCCA  \email{m.selmi@usl2.toscana.it}
+Istituto di Biometeorologia Firenze Italy  Alfonso crisci \email{a.crisci@ibimet.cnr.it} ASL LUCCA Marco Selmi \email{marco.selmi@uslnordovest.toscana.it }
 }
 \keyword{container}

@@ -6,12 +6,12 @@
 \title{trappola_wmodel}
 \format{A lm R object.}
 \source{
-\url{http://www.ibimet.cnr.it/}
+Istituto di Biometeorologia Firenze Italy  Alfonso crisci \email{a.crisci@ibimet.cnr.it}
 }
 \usage{
 trappola_wmodel
 }
 \description{
-Numerical model based on water temperature observation in Lucca to asses this parameter from daily minimum and maximum temperature.
+Multivariate linear model  of daily mean water temperature observed in a mosquito REDLAV trap in Italy based on  daily minimum and maximum air temperature and length of day.
 }
 \keyword{datasets}

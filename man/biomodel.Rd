@@ -5,7 +5,7 @@
 \title{biomodel}
 \usage{
 biomodel(i_biometeo, i_biocontainer, i_biopopulation, i_bioparameters,
-  state = c(L1 = 0, L3 = 0, L4 = 0, L5 = 0, L6 = 0, L7 = 0, L8 = 0, L10 = 0),
+  state = c(L1 = 0, L2 = 0, L3 = 0, L4 = 0, L5 = 0, L6 = 0, L7 = 0, L8 = 0),
   time_interval = 24, stocastic = TRUE, n_sampling = 10,
   inibition = FALSE, ID_sim = "", saveparameter = FALSE)
 }
@@ -19,8 +19,8 @@ biomodel(i_biometeo, i_biocontainer, i_biopopulation, i_bioparameters,
 \item{i_bioparameters}{object rAedesSim object concerning biological parameter of mosquito population.}
 
 \item{state}{numeric The state vector used in time simulation.The values are number of individuals L1 : Ovideposition rate, L3 : Eggs Mortality rate, 
-L4: Eggs2larvae transition rate, L5 : Pupae2Larvae transition rate, L6 larvae Mortality,L7  pupae Mortality
-L8 Pupae2adult transition rate, L10 Female adult mortality Default : L1=0,L3=0,L4=0,L5=0,L6=0,L7=0,L8=0,L10=0}
+L4: Eggs2larvae transition rate, L5 : Pupae2Larvae transition rate, L6 Larvae Mortality,L7  Pupae Mortality
+L8 Pupae2Adult transition rate, L10 Adult mortality Default: L1=0,L3=0,L4=0,L5=0,L6=0,L7=0,L8=0,L10=0}
 
 \item{time_interval}{numeric Interval times of simulation.}
 
@@ -42,6 +42,8 @@ The biomodel function is the core function that performs simulation.It consists 
              calculating the transitional rate of population by using daily environmental data. With these a a Runge-Kutta
 }
 \author{
-Istituto di Biometeorologia Firenze Italy  Alfonso crisci \email{a.crisci@ibimet.cnr.it} ASL 2 LUCCA Marco Selmi \email{m.selmi@usl2.toscana.it}
+Istituto di Biometeorologia Firenze Italy  Alfonso crisci \email{a.crisci@ibimet.cnr.it} ASL LUCCA Marco Selmi \email{marco.selmi@uslnordovest.toscana.it }
 }
+\keyword{daily}
 \keyword{modeling}
+\keyword{simulation}

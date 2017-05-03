@@ -71,6 +71,6 @@ biocontainer
 biocontainer is the function able to instantiate a S3 object used in rAedesSim simulation. The one is referred to the main features of the container where eggs are layed and larvae/pupae growth.
 }
 \author{
-Istituto di Biometeorologia Firenze Italy  Alfonso crisci \email{a.crisci@ibimet.cnr.it} ASL 2 LUCCA Marco Selmi \email{m.selmi@usl2.toscana.it}
+Istituto di Biometeorologia Firenze Italy  Alfonso crisci \email{a.crisci@ibimet.cnr.it} ASL 2 LUCCA Marco Selmi \email{marco.selmi@uslnordovest.toscana.it }
 }
 \keyword{container}

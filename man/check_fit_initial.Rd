@@ -5,10 +5,10 @@
 \title{check_fit_initial}
 \usage{
 check_fit_initial(i_biometeo, i_monitoring, i_biocontainer, larv_alpha,
-  adu_alpha, eggs_diap, Ndayscenario_prim = 120, Ndayscenario_aut = 90,
-  deltatmed_prim = 0, deltawater_prim = 0, deltatmed_aut = 0,
-  deltawater_aut = 0, ini_rmse = 1, end_rmse = NULL, stocastic = FALSE,
-  n_sampling = 10, saveparameter = TRUE)
+  adu_alpha, eggs_diap, egn = 16, Ndayscenario_prim = 120,
+  Ndayscenario_aut = 90, deltatmed_prim = 0, deltawater_prim = 0,
+  deltatmed_aut = 0, deltawater_aut = 0, ini_rmse = 1, end_rmse = NULL,
+  stocastic = FALSE, n_sampling = 10, saveparameter = TRUE)
 }
 \arguments{
 \item{i_biometeo}{object rAedesSim \code{ biometeo} object}
@@ -20,6 +20,8 @@ check_fit_initial(i_biometeo, i_monitoring, i_biocontainer, larv_alpha,
 \item{adu_alpha}{numeric adult larvae intra-competition factor.}
 
 \item{eggs_diap}{numeric Number of diapausant eggs considered.}
+
+\item{egn}{numeric Number of eggs pour adults.}
 
 \item{Ndayscenario_prim}{numeric Indicate the number of days considered after the first date of meteo data series. Defalut is 120.}
 

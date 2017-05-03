@@ -5,4 +5,5 @@
 #' @format A lm R object.
 #' 
 #' @source ASL 2 LUCCA Marco Selmi \email{marco.selmi@@uslnordovest.toscana.it} 
+#' @export
 "tombino_tosc_wmodel"

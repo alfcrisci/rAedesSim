@@ -37,7 +37,7 @@ rAedesSim object biofitmodel object.
 \code{find_best_monitoring} Function to semplify  model tuning by using \code{biofitmodel} rAedesSim Class.
 }
 \author{
-Istituto di Biometeorologia Firenze Italy  Alfonso crisci \email{a.crisci@ibimet.cnr.it} ASL 2 LUCCA Marco Selmi \email{m.selmi@usl2.toscana.it}
+Istituto di Biometeorologia Firenze Italy  Alfonso crisci \email{a.crisci@ibimet.cnr.it} ASL 2 LUCCA Marco Selmi \email{marco.selmi@uslnordovest.toscana.it}
 }
 \keyword{modeling}
 \keyword{rAedesSim}

@@ -22,7 +22,7 @@ It is used to evaluate the impact of drought on mosquito population. A rain tres
 \code{"drydaycons"}
 }
 \author{
-Istituto di Biometeorologia Firenze Italy  Alfonso crisci \email{a.crisci@ibimet.cnr.it} ASL 2 LUCCA Marco Selmi \email{m.selmi@usl2.toscana.it}
+Istituto di Biometeorologia Firenze Italy  Alfonso crisci \email{a.crisci@ibimet.cnr.it} ASL LUCCA Marco Selmi \email{marco.selmi@uslnordovest.toscana.it }
 }
 \keyword{drought,}
 \keyword{dry}

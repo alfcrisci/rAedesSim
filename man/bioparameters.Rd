@@ -5,36 +5,36 @@
 \title{bioparameters}
 \usage{
 bioparameters(alfa_l = 1, alfa_a = 0, exp_lar = 1, l_density = 100,
-  sex_ratio = 0.5, egn = 63, ef = 0.83, inib = 0, sspp = "Albopictus",
+  sex_ratio = 0.5, egn = 16, ef = 0.83, inib = 0, sspp = "Albopictus",
   genus_sspp = "Aedes", order_sspp = "Diptera", geo_area = "Tuscany",
   name_location = NA)
 }
 \arguments{
-\item{numeric}{alfa_l Coefficient of competition between individuals at larval stage.}
+\item{alfa_l}{numeric Coefficient of competition between individuals at larval stage.}
 
-\item{numeric}{alfa_a  Coefficient of competition between individuals at adult stage.}
+\item{alfa_a}{numeric  Coefficient of competition between individuals at adult stage.}
 
-\item{numeric}{exp_lar Exponential Gompertz parameter for competition modulation. Default=1.}
+\item{exp_lar}{numeric Exponential Gompertz parameter for competition modulation. Default=1.}
 
-\item{numeric}{l_density Expected larval density. Default is 70.}
+\item{l_density}{numeric Expected larval density. Default is 70.}
 
-\item{numeric}{sexratio   Sex ratio of population. Default is 0.5.}
+\item{egn}{numeric the Mean eggs during ovideposition cycle. Default is 63.}
 
-\item{numeric}{egn  Mean eggs . Default is 63.}
+\item{inib}{numeric Inibition rate parameter ( 0-1) Default is 0.}
 
-\item{numeric}{inib Inibition rate parameter ( 0-1) Default is 0.}
+\item{sspp}{character Name of the species. Default is "Albopictus".}
 
-\item{string}{sspp Name of the species. Default is "Albopictus".}
+\item{genus_sspp}{character  Name of the genus of the species. Default is "Aedes".}
 
-\item{string}{genus_sspp  Name of the genus of the species. Default is "Aedes".}
+\item{order_sspp}{character  Name of the order of the species. Default is "Diptera".}
 
-\item{string}{order_sspp  Name of the order of the species. Default is "Diptera".}
+\item{geo_area}{character Name of geographic area. Default is "Tuscany".}
 
-\item{string}{geo_area  Name of geographic area. Default is "Tuscany".}
+\item{name_location}{character  Name of location.}
 
-\item{string}{name_location  Name of location.}
+\item{sexratio}{numeric   Sex ratio of population. Default is 0.5.}
 
-\item{numeric}{name_location mean elevation  of container location. Default is 100.}
+\item{name_location}{numeric mean elevation  of container location. Default is missing.}
 }
 \value{
 S3 object Bioparameters object
@@ -43,6 +43,6 @@ S3 object Bioparameters object
 Bioparameters is a function to instantiate an S3 object  containing biological parameters used in simulation for rAedesSim .
 }
 \author{
-Istituto di Biometeorologia Firenze Italy  Alfonso crisci \email{a.crisci@ibimet.cnr.it} ASL 2 LUCCA Marco Selmi \email{m.selmi@usl2.toscana.it}
+Istituto di Biometeorologia Firenze Italy  Alfonso crisci \email{a.crisci@ibimet.cnr.it} ASL LUCCA Marco Selmi \email{marco.selmi@uslnordovest.toscana.it }
 }
-\keyword{biparameters}
+\keyword{bioparameters}

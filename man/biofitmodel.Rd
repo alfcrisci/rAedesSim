@@ -35,7 +35,7 @@ biofitmodel(i_biometeo, i_biopopulation, i_biocontainer, i_monitoring,
 
 \item{ini_rmse}{numeric Starting position index to calculate RMSE on the observed time series.Defalut is 1.}
 
-\item{end_rmse}{numeric Ending position index to calculate RMSE on observed data.Default is NULL that means all obeserved data are considered if ini_rmse = 1.}
+\item{end_rmse}{numeric Ending position index to calculate RMSE on observed data.Default is NULL and means that all observed data are considered if ini_rmse = 1.}
 }
 \value{
 biofitmodel
@@ -46,6 +46,6 @@ by using the minimal RMSE criterion, when environmental  and population data are
 It is possible to esplicit the numerosity  of data used to perform the validation indicating the index of starting and ending by using observed data as reference.
 }
 \author{
-Istituto di Biometeorologia Firenze Italy  Alfonso crisci \email{a.crisci@ibimet.cnr.it} ASL 2 LUCCA Marco Selmi \email{m.selmi@usl2.toscana.it}
+Istituto di Biometeorologia Firenze Italy  Alfonso crisci \email{a.crisci@ibimet.cnr.it} ASL LUCCA Marco Selmi \email{marco.selmi@uslnordovest.toscana.it }
 }
 \keyword{biofitmodel}
