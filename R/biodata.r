@@ -26,7 +26,7 @@
 #' @param nasa_radiance numeric Night radiance value. Is a proxy for urbanity.
 #' @param census_level numeric Population density estimation by EEA data sources.
 #' @return object  Return a rAedesim object of class biodata  
-#' @author  Istituto di Biometeorologia Firenze Alfonso Crisci \email{a.crisci@@ibimet.cnr.it} ASL 2 LUCCA  Marco Selmi \email{m.selmi@@usl2.toscana.it} 
+#' @author  Istituto di Biometeorologia Firenze Alfonso Crisci \email{a.crisci@@ibimet.cnr.it} ASL 2 LUCCA  Marco Selmi \email{marco.selmi@@uslnordovest.toscana.it }
 #' @keywords  data, modeling 
 #'
 #' @import sp

@@ -28,7 +28,7 @@
 #' @param ID  character ID of container's set.
 #' @param site_name character   Name of place or location.
 #' @return biocontainer 
-#' @author  Istituto di Biometeorologia Firenze Italy  Alfonso crisci \email{a.crisci@@ibimet.cnr.it} ASL 2 LUCCA Marco Selmi \email{m.selmi@@usl2.toscana.it} 
+#' @author  Istituto di Biometeorologia Firenze Italy  Alfonso crisci \email{a.crisci@@ibimet.cnr.it} ASL 2 LUCCA Marco Selmi \email{marco.selmi@@uslnordovest.toscana.it }
 #' @keywords  container
 #'
 #' @import sp

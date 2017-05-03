@@ -7,7 +7,7 @@
 #' @param tresh nuemric: threshold in days 
 #' @return weigthdry
 #' @seealso \code{"drydaycons"}
-#' @author  Istituto di Biometeorologia Firenze Italy  Alfonso crisci \email{a.crisci@@ibimet.cnr.it} ASL 2 LUCCA Marco Selmi \email{m.selmi@@usl2.toscana.it} 
+#' @author  Istituto di Biometeorologia Firenze Italy  Alfonso crisci \email{a.crisci@@ibimet.cnr.it} ASL LUCCA Marco Selmi \email{marco.selmi@@uslnordovest.toscana.it }
 #' @keywords  drought, dry spell
 #'
 #' 

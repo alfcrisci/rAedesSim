@@ -1,22 +1,22 @@
 #' bioparameters
 #'
 #' @description Bioparameters is a function to instantiate an S3 object  containing biological parameters used in simulation for rAedesSim .
-#' @param numeric alfa_l Coefficient of competition between individuals at larval stage.
-#' @param numeric alfa_a  Coefficient of competition between individuals at adult stage.
-#' @param numeric exp_lar Exponential Gompertz parameter for competition modulation. Default=1.
-#' @param numeric l_density Expected larval density. Default is 70.
-#' @param numeric sexratio   Sex ratio of population. Default is 0.5.
-#' @param numeric egn  Mean eggs . Default is 63.
-#' @param numeric inib Inibition rate parameter ( 0-1) Default is 0.
-#' @param string sspp Name of the species. Default is "Albopictus".
-#' @param string genus_sspp  Name of the genus of the species. Default is "Aedes".
-#' @param string order_sspp  Name of the order of the species. Default is "Diptera".
-#' @param string geo_area  Name of geographic area. Default is "Tuscany".
-#' @param string name_location  Name of location.
-#' @param numeric name_location mean elevation  of container location. Default is 100.
+#' @param alfa_l numeric Coefficient of competition between individuals at larval stage.
+#' @param alfa_a numeric  Coefficient of competition between individuals at adult stage.
+#' @param exp_lar numeric Exponential Gompertz parameter for competition modulation. Default=1.
+#' @param l_density numeric Expected larval density. Default is 70.
+#' @param sexratio numeric   Sex ratio of population. Default is 0.5.
+#' @param egn  numeric the Mean eggs during ovideposition cycle. Default is 63.
+#' @param inib numeric Inibition rate parameter ( 0-1) Default is 0.
+#' @param sspp  character Name of the species. Default is "Albopictus".
+#' @param genus_sspp  character  Name of the genus of the species. Default is "Aedes".
+#' @param order_sspp  character  Name of the order of the species. Default is "Diptera".
+#' @param geo_area   character Name of geographic area. Default is "Tuscany".
+#' @param name_location  character  Name of location.
+#' @param name_location numeric mean elevation  of container location. Default is missing.
 #' @return S3 object Bioparameters object
-#' @author  Istituto di Biometeorologia Firenze Italy  Alfonso crisci \email{a.crisci@@ibimet.cnr.it} ASL 2 LUCCA Marco Selmi \email{m.selmi@@usl2.toscana.it} 
-#' @keywords  biparameters
+#' @author  Istituto di Biometeorologia Firenze Italy  Alfonso crisci \email{a.crisci@@ibimet.cnr.it} ASL LUCCA Marco Selmi \email{marco.selmi@@uslnordovest.toscana.it }
+#' @keywords  bioparameters
 #'
 #' 
 #' 

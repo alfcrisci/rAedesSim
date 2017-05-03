@@ -6,5 +6,5 @@
 #' @format A list of rAedeSim meteodata objects. 
 #' 
 #' @source \url{http://www.ibimet.cnr.it/}
-#' @author  Istituto di Biometeorologia Firenze Italy  Alfonso crisci \email{a.crisci@@ibimet.cnr.it}
+#' @author  Istituto di Biometeorologia Firenze Italy  Alfonso crisci \email{a.crisci@@ibimet.cnr.it} ASL LUCCA Marco Selmi \email{marco.selmi@@uslnordovest.toscana.it }
 #' @keywords  meteodata

@@ -8,7 +8,7 @@
 #' @param critical_density Larval critical density to establish if hatch is inibited.
 #' @return . 
 #' @references Janice S. Edgerly - Michelle S. Willey - Todd P. Livdahl - Ecological Entomology - Vol. 18 - Issue 2 - 1993 - pp. 123-128  \url{http://www.clarku.edu/faculty/tlivdahl/publications/livdahl-edgerly87.pdf}
-#' @author  Istituto di Biometeorologia Firenze Italy  Alfonso crisci \email{a.crisci@@ibimet.cnr.it} ASL 2 LUCCA Marco Selmi \email{m.selmi@@usl2.toscana.it} 
+#' @author  Istituto di Biometeorologia Firenze Italy  Alfonso crisci \email{a.crisci@@ibimet.cnr.it} ASL LUCCA Marco Selmi \email{marco.selmi@@uslnordovest.toscana.it }
 #' @keywords  Egg Hatch inibition
 #'
 #' 

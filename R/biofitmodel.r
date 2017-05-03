@@ -16,11 +16,9 @@
 #' @param plotresults logical if is true a plot is done. Default is FALSE.
 #' @param testRMSE logical if test the root mean square error of simualtions. Default is FALSE.
 #' @param ini_rmse numeric Starting position index to calculate RMSE on the observed time series.Defalut is 1.
-#' @param end_rmse numeric Ending position index to calculate RMSE on observed data.Default is NULL that means all obeserved data are considered if ini_rmse = 1.
-
+#' @param end_rmse numeric Ending position index to calculate RMSE on observed data.Default is NULL and means that all observed data are considered if ini_rmse = 1.
 #' @return biofitmodel
-
-#' @author  Istituto di Biometeorologia Firenze Italy  Alfonso crisci \email{a.crisci@@ibimet.cnr.it} ASL 2 LUCCA Marco Selmi \email{m.selmi@@usl2.toscana.it} 
+#' @author  Istituto di Biometeorologia Firenze Italy  Alfonso crisci \email{a.crisci@@ibimet.cnr.it} ASL LUCCA Marco Selmi \email{marco.selmi@@uslnordovest.toscana.it }
 #' @keywords biofitmodel
 #' 
 #' @import deSolve
@@ -157,67 +155,65 @@ biofitmodel  <- function(i_biometeo,
 				
 				plot_ts=NULL;
 				
-	                        if ( plotresults == TRUE)   { plot_ts=plot(simul_ts[[best]],
-				                                      main = paste("Observed (red) & Assessed (Black) - ",as.character(i_monitoring$location),"-",as.character(i_biocontainer$type),"-","Stage's competivity index: Larvae=",as.character(replies_best$alpha_l)," Adults=",as.character(replies_best$alpha_a)," Larval MaxDensity=",replies_best[3]),
-				                                      cex.axis = 1.2,
-				                                      cex.main = 2.5,
-				                                      legend.loc = "bottomright", 
-				                                      legend.pars = list(bty = "n",cex=2,horiz=TRUE),
-				                                      legend.names = c("Observed","Assessed")) 
+	      if ( plotresults == TRUE)   { plot_ts=plot(simul_ts[[best]],
+	                                                 main = paste("Observed (red) & Assessed (Black) - ",as.character(i_monitoring$location),"-",as.character(i_biocontainer$type),"-","Stage's competivity index: Larvae=",as.character(replies_best$alpha_l)," Adults=",as.character(replies_best$alpha_a)," Larval MaxDensity=",replies_best[3]),
+	                                                 cex.axis = 1.2,
+	                                                 cex.main = 2.5,
+	                                                 legend.loc = "bottomright", 
+	                                                 legend.pars = list(bty = "n",cex=2,horiz=TRUE),
+	                                                 legend.names = c("Observed","Assessed")) 
 				                             }
 				#########################################################################################################################################
 			   
-                                object  <-  list(name_model="rAedesSim",
-                                                 location=as.character(i_monitoring$location),
-                                                 guess_parameter=replies,
-                                                 best_simul = res_simul,
-                                                 best_simul_RMSE =res_simul_RMSE ,
-                                                 best_simul_test =res_simul_test ,
-                                                 best_simul_RMSE_pval =res_simul_RMSE_pval,
-                                                 par_fitted_best=replies_best,
-                                                 simul_RMSE=simul_RMSE,
-                                                 simul_test=simul_test,
-                                                 simul_RMSE_pval=simul_RMSE_pval,
-                                                 n_replies=length(na.omit(simul_RMSE)),
-                                                 stocastic=stocastic,
-                                                 n_sampling=n_sampling,
-                                                 inibition=inibition,
-                                                 ID=i_biocontainer$ID,
-                                                 sp_obj=i_biocontainer$sp_obj,
-                                                 lat=i_biocontainer$lat,
-                                                 lon=i_biocontainer$lon,
-                                                 plot_ts=plot_ts,
-                                                 ini_rmse=ini_rmse,
-						 end_rmse=end_rmse
-                                );
+        object  <-  list(name_model="rAedesSim",
+                         location=as.character(i_monitoring$location),
+                         guess_parameter=replies,
+                         best_simul = res_simul,
+                         best_simul_RMSE =res_simul_RMSE ,
+                         best_simul_test =res_simul_test ,
+                         best_simul_RMSE_pval =res_simul_RMSE_pval,
+                         par_fitted_best=replies_best,
+                         simul_RMSE=simul_RMSE,
+                         simul_test=simul_test,
+                         simul_RMSE_pval=simul_RMSE_pval,
+                         n_replies=length(na.omit(simul_RMSE)),
+                         stocastic=stocastic,
+                         n_sampling=n_sampling,
+                         inibition=inibition,
+                         ID=i_biocontainer$ID,
+                         sp_obj=i_biocontainer$sp_obj,
+                         lat=i_biocontainer$lat,
+                         lon=i_biocontainer$lon,
+                         plot_ts=plot_ts,
+                         ini_rmse=ini_rmse,
+                         end_rmse=end_rmse
+                        );
 			            									  
-				               
-
                 #########################################################################################################################################
 				             	    
-                attr(object,"name_model") <- "Model's name"
-                attr(object,"location") <- "Location's name."
-                attr(object,"guess_parameter") <- "Matrix of guess values."
-                attr(object,"best_simul") <- "Timeseries object: Best simulation taking into account diapause."
-                attr(object,"best_simul_RMSE") <- "Best Root mean square Error value in the grid scheme of simulations."
-                attr(object,"best_simul_test") <- "Statistics associated to best RMSE in the grid scheme of simulations."
-                attr(object,"best_simul_RMSE_pval") <- "P.val of RMSE in the grid scheme of simulations."
-                attr(object,"par_fitted_best") <- "Parameter fitted."
-                attr(object,"simul_RMSE") <- "Root mean square error value for  all simulations."
-                attr(object,"simul_test") <- "Statistics of reliability for all simulations."
-                attr(object,"simul_RMSE_pval") <- "Root mean square error pval for all simulations.Significant under p<.005 "
-                attr(object,"n_replies") <- "Number of simulations."
-                attr(object,"stocastic") <- "If stocasticity in simulation are considered."
-                attr(object,"n_sampling") <- "Number of resampling."
-                attr(object,"inibition") <- "Logical if larval inibition are taken into account in simulation."
-                attr(object,"ID")<-"ID label of container set."
-                attr(object,"sp_obj")<-"SpatialPointDataFrame of location."
-                attr(object,"lat")<-"latitude coordinates of simulations."
-                attr(object,"lon")<-"longitude coordinates of simulations."
-                attr(object,"plot_ts")<-"Plot fitted vs observed eggs."
-                attr(object,"ini_rmse")<-"Starting index to evaluate RMSE in monitoring data time series."
-	        attr(object,"end_rmse")<-"Ending index to evaluate RMSE in monitoring data time series."
-                class(object) <- "biofitmodel"
-                return(object)
+        attr(object,"name_model") <- "Model's name"
+				attr(object,"location") <- "Location's name."
+        attr(object,"guess_parameter") <- "Matrix of guess values."
+        attr(object,"best_simul") <- "Timeseries object: Best simulation taking into account diapause."
+        attr(object,"best_simul_RMSE") <- "Best Root mean square Error value in the grid scheme of simulations."
+        attr(object,"best_simul_test") <- "Statistics associated to best RMSE in the grid scheme of simulations."
+        attr(object,"best_simul_RMSE_pval") <- "P.val of RMSE in the grid scheme of simulations."
+        attr(object,"par_fitted_best") <- "Parameter fitted."
+        attr(object,"simul_RMSE") <- "Root mean square error value for  all simulations."
+        attr(object,"simul_test") <- "Statistics of reliability for all simulations."
+        attr(object,"simul_RMSE_pval") <- "Root mean square error pval for all simulations.Significant under p<.005 "
+        attr(object,"n_replies") <- "Number of simulations."
+        attr(object,"stocastic") <- "If stocasticity in simulation are considered."
+        attr(object,"n_sampling") <- "Number of resampling."
+        attr(object,"inibition") <- "Logical if larval inibition are taken into account in simulation."
+        attr(object,"ID")<-"ID label of container set."
+        attr(object,"sp_obj")<-"SpatialPointDataFrame of location."
+        attr(object,"lat")<-"latitude coordinates of simulations."
+        attr(object,"lon")<-"longitude coordinates of simulations."
+        attr(object,"plot_ts")<-"Plot fitted vs observed eggs."
+        attr(object,"ini_rmse")<-"Starting index to evaluate RMSE in monitoring data time series."
+        attr(object,"end_rmse")<-"Ending index to evaluate RMSE in monitoring data time series."
+        class(object) <- "biofitmodel"
+        return(object)
 }
 

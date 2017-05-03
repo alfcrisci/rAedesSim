@@ -19,7 +19,7 @@
 #' @param date_format character Format of the dates in raw data. Default is YYYY-MM-DD. 
 #' @param timeseries  object xts R Timeseries of data
 #' @return meteodata
-#' @author  Istituto di Biometeorologia Firenze Italy  Alfonso crisci \email{a.crisci@@ibimet.cnr.it} ASL 2 LUCCA Marco Selmi \email{m.selmi@@usl2.toscana.it} 
+#' @author  Istituto di Biometeorologia Firenze Italy  Alfonso crisci \email{a.crisci@@ibimet.cnr.it} ASL 2 LUCCA Marco Selmi \email{marco.selmi@@uslnordovest.toscana.it } 
 #' @keywords  metorological data 
 #' @import sp
 #' 

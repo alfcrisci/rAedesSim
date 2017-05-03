@@ -2,15 +2,15 @@
 #'
 #' @description S3 class to describe biomodelday object to be used in rAedesim model. 
 #' 
-#' @param eggs Number  Eggs Count.  
-#' @param larvae Number Larvae Count.  
-#' @param pupae Number Pupae Count. 
-#' @param adults Number Mosquito Female Actual Count. 
-#' @param eggs_diap Number Diapausant Eggs Count.
+#' @param eggs numeric  Eggs Count.  
+#' @param larvae numeric Larvae Count.  
+#' @param pupae numeric Pupae Count. 
+#' @param adults numeric Mosquito Female Actual Count. 
+#' @param eggs_diap numeric Diapausant Eggs Count.
 #' @param ID character ID label Population. 
 #' @return object Return a rAedesim biopopulation object.
-#' @author  Alfonso crisci \email{a.crisci@@ibimet.cnr.it} Istituto di Biometeorologia Firenze Italy  Marco Selmi  ASL 2 LUCCA  \email{m.selmi@@usl2.toscana.it} 
-#' @keywords  container
+#' @author  Istituto di Biometeorologia Firenze Italy  Alfonso crisci \email{a.crisci@@ibimet.cnr.it} ASL LUCCA Marco Selmi \email{marco.selmi@@uslnordovest.toscana.it }
+#'@keywords  container
 #'
 #' 
 #' 

@@ -14,7 +14,7 @@
 #' @param n_sampling numeric: number  of resampling if stochastic is implemented by \code{biomodel}. Default is 10.
 #' @param inibition logical: if larval density is considered. Defalut is FALSE.
 #' @return rAedesSim object biofitmodel object.
-#' @author  Istituto di Biometeorologia Firenze Italy  Alfonso crisci \email{a.crisci@@ibimet.cnr.it} ASL 2 LUCCA Marco Selmi \email{m.selmi@@usl2.toscana.it} 
+#' @author  Istituto di Biometeorologia Firenze Italy  Alfonso crisci \email{a.crisci@@ibimet.cnr.it} ASL 2 LUCCA Marco Selmi \email{marco.selmi@@uslnordovest.toscana.it}
 #' @keywords   rAedesSim modeling
 #'
 #' 

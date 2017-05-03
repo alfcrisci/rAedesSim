@@ -6,5 +6,5 @@
 #' @format SpatialPointsDataFrame R 
 #' 
 #' @source \url{http://www.ibimet.cnr.it/}
-#' @author  Istituto di Biometeorologia Firenze Italy  Alfonso crisci \email{a.crisci@@ibimet.cnr.it} ASL 2 LUCCA Marco Selmi \email{m.selmi@@usl2.toscana.it} 
+#' @author  Istituto di Biometeorologia Firenze Italy  Alfonso crisci \email{a.crisci@@ibimet.cnr.it} ASL 2 LUCCA Marco Selmi \email{marco.selmi@@uslnordovest.toscana.it } 
 #' @keywords  redlav locations

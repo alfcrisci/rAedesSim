@@ -16,8 +16,8 @@
 #' @param ID_sim character  ID of simulation.Default is FALSE.
 #' @param saveparameter logical  Save results about paraemters. Default is FALSE. 
 #' @return biomodel
-#' @author  Istituto di Biometeorologia Firenze Italy  Alfonso crisci \email{a.crisci@@ibimet.cnr.it} ASL 2 LUCCA Marco Selmi \email{m.selmi@@usl2.toscana.it} 
-#' @keywords  modeling
+#' @author  Istituto di Biometeorologia Firenze Italy  Alfonso crisci \email{a.crisci@@ibimet.cnr.it} ASL LUCCA Marco Selmi \email{marco.selmi@@uslnordovest.toscana.it }
+#' @keywords  daily simulation modeling
 #'
 #' @import deSolve
 #' @import lubridate

@@ -29,7 +29,7 @@
 #' @references Schoofield, R.M., Sharpe, P.J.H., Magnuson, C.E., 1981. Non-linear regression of biological temperature-dependent rate models based on absolute reaction-rate theory. J. Theor. Biol. 88, 719-731.
 #'  Sharpe, P.J.H., DeMichele, D.W., 1977. Reaction kinetics of poikilotherm development. J. Theor. Biol. 64, 649 670.
 
-#' @author  Istituto di Biometeorologia Firenze Italy  Alfonso crisci \email{a.crisci@@ibimet.cnr.it} ASL 2 LUCCA Marco Selmi \email{m.selmi@@usl2.toscana.it} 
+#' @author  Istituto di Biometeorologia Firenze Italy  Alfonso crisci \email{a.crisci@@ibimet.cnr.it} ASL LUCCA Marco Selmi \email{marco.selmi@@uslnordovest.toscana.it }
 #' @keywords  Developmental rate insect
 
 

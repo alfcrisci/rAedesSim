@@ -1,7 +1,7 @@
 #' trappola_wmodel
 #'
-#' @description Numerical model based on water temperature observation in Lucca to asses this parameter from daily minimum and maximum temperature.
+#' @description Multivariate linear model  of daily mean water temperature observed in a mosquito REDLAV trap in Italy based on  daily minimum and maximum air temperature and length of day.
 #' @format A lm R object.
 #' 
-#' @source \url{http://www.ibimet.cnr.it/}
+#' @source Istituto di Biometeorologia Firenze Italy  Alfonso crisci \email{a.crisci@@ibimet.cnr.it} 
 "trappola_wmodel"

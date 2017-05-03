@@ -16,7 +16,7 @@
 #' @param varjd numeric Days of variance for  diapause emergency courbes. Default is 10.
 #' @param truncated logical Modeling with truncated gaussian respecting the limits. Default is FALSE.
 #' @return  Return a biometeo object.
-#' @author  Istituto di Biometeorologia Firenze Italy  Alfonso crisci \email{a.crisci@@ibimet.cnr.it} ASL 2 LUCCA Marco Selmi \email{m.selmi@@usl2.toscana.it} 
+#' @author  Istituto di Biometeorologia Firenze Italy  Alfonso crisci \email{a.crisci@@ibimet.cnr.it} ASL LUCCA Marco Selmi \email{marco.selmi@@uslnordovest.toscana.it }
 #' @keywords  container
 #'
 #' 
