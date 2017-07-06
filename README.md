@@ -13,6 +13,8 @@ An example of operative work-chain
 
 ```R
 library(rAedesSim)
+library(dygraph)
+library(XLConnect)
 
 ###########################################################################################################################
 # Load some meteorological data obtained by Weather Local Model simulations for 2012 in REDLAV coastal locations in Tuscany.
@@ -119,46 +121,27 @@ guess_simulation_tomb=check_fit_initial(C_Pescaia_P4_bio_tombino,
 
 
 guess_simulation_tomb$resfig_all
-```
 
+guess_simulation_tomb$simulation$ts_parameter$mu=res$simulation$ts_parameter$mu/100 
 
-{::nomarkdown}
-
-<p><div><iframe width="560" height="315" src="castiglione_pescaia_tombino_guess.html" frameborder="0">
-</iframe></p></div>
-
-{:/}
+dygraph(guess_simulation_tomb$simulation$ts_parameter, xlab = "Year", ylab = "Rate")
+dygraph(i_biometeo$timeseries[,c("emergency","d_induction")], xlab = "Year", ylab = "Rate")
 
 
 
 
+					
+#################################################################################################
+#  recursive grid search of alpha adults and alpha larvae parameters
 
-
-```R
-
-simulation=biomodel(i_biometeo=C_Pescaia_P4_bio_tombino,
-                    i_biocontainer=i_biocontainer_tomb,                            
-                    i_biopopulation=ini_population,
-                    i_bioparameters= bioparameters(alfa_l=0.8,alfa_a=5)
-                    )
-
-
-					  
-
-
-##################################################################################################
-# viewwhere is a function to perform a fast visualisation of simulation in its urban context.
-# work of rAedesSim object 
-
-viewwhere(simulation)
 
 
 simulation_fit=biofitmodel(i_biometeo=i_biometeo,
                            i_biopopulation=i_biopopulation,
-                           i_biocontainer=i_biocontainer,
-                           i_monitoring=Castiglione_della_Pescaia_P4_monitoring,
-                           range_alpha_a=c(0,seq(0,5,1)),
-                           range_alpha_l=seq(0.6,1.6,0.2),
+                           i_biocontainer=i_biocontainer_tomb,
+                           i_monitoring=C_della_Pescaia_P4_monitoring,
+                           range_alpha_a=c(0,seq(1,2.5,0.2)),
+                           range_alpha_l=seq(0.6,1.2,0.2),
                            plotresults=TRUE
 			   )	
 
@@ -166,4 +149,12 @@ simulation_fit=biofitmodel(i_biometeo=i_biometeo,
 simulation_fit
 
 ##################################################################################################
+# viewwhere is a function to perform a fast visualisation of simulation in its urban context.
+# work of rAedesSim object 
+
+viewwhere(i_biocontainer_tomb)
+
+
+
+
 ```
