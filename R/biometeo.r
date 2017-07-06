@@ -97,7 +97,7 @@ biometeo=function (meteo,
     }
 
     diapause_emerg = diapause_emergency(dates,
-					                              as.numeric(i_biocontainer$lon), 
+					as.numeric(i_biocontainer$lon), 
                                         as.numeric(i_biocontainer$lat), 
                                         CPPmin, 
                                         datemax, 
