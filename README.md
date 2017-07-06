@@ -17,7 +17,7 @@ library(rAedesSim)
 
 # install the packages from CRAN if is necessary.
 
-if (!require(dygraph) || !require(dygraph) ) { install.packages(c("dygraph","XLConnect")) }
+if (!require(dygraphs) || !require(XLConnect) ) { install.packages(c("dygraphs","XLConnect")) }
 
 library(dygraph) # htmlwidget plots
 library(XLConnect) # excel writing
