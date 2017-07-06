@@ -29,8 +29,10 @@ data(trap_tosc_wmodel)
 data(tombino_tosc_wmodel)
 
 #################################################################################################
-# Create a habitat niche and define breeding site number ( -> rAedesSim biocontainer ).
-# Load a opportune model for to assess water temperature.
+# Create a two habitat and define a BS breeding site number ( nrecipients=1 - rAedesSim biocontainer ).
+# Load an opportune model to assess water temperature from weather data. watermodel object is 
+# a lm/gma model  with formula = tmedwater ~ daylength + tmed (+ tmax + tmin).  Length of day and mean temperature are required.
+
 
 i_biocontainer_tomb=biocontainer(nrecipients=1,
                                  watermodel=tombino_tosc_wmodel, 
@@ -39,7 +41,7 @@ i_biocontainer_tomb=biocontainer(nrecipients=1,
                                  elevation=5)
                                  
 i_biocontainer_trap=biocontainer(nrecipients=1,
-                                 watermodel=tombino_tosc_wmodel,
+                                 watermodel=trap_tosc_wmodel,
                                  model_type="lin",
                                  lat=42.76090556,
                                  lon=10.88788889,
