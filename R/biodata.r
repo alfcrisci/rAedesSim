@@ -19,6 +19,7 @@
 #' @param field_delimiter character field delimiter of file. Default is comma ",". 				                   
 #' @param lat numeric latitude coordinates of  where data are collected.
 #' @param lon numeric longitude coordinates of  where data are collected.
+#' @param timezone character Timezone. Default is Europe/Rome.
 #' @param CRS character Projection of coordinate in proj4 format.
 #' @param elevation numeric Elevation of the Default is 40.
 #' @param geonotes character Annotations in regard to the contest of observation.
@@ -50,7 +51,7 @@ biodata <- function(ID="",
                     field_delimiter=",",
                     lat,
                     lon,
-		    elevation,
+		    timezone="Europe/Rome",
                     CRS="+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs",
                     geonotes="",
 		    urban=TRUE,
@@ -144,8 +145,9 @@ biodata <- function(ID="",
                  attr(object,"data_provider")<-"Institution / Private data manager"
                  attr(object,"data_maintaner")<-"maintainer's  name or contact or its contact"
                  attr(object,"data_licence")<-"Licence of data"                   
-                 attr(object,"lat")<-"latitude coordinates of  where data are collected"
-                 attr(object,"lon")<-"longitude coordinates of  where data are collected"
+                 attr(object,"lat")<-"latitude coordinates of  site where data are collected"
+                 attr(object,"lon")<-"longitude coordinates of  site where data are collected"
+	         attr(object,"timezone")<-"longitude coordinates of  where data are collected"
                  attr(object,"CRS")<-"Projection of coordinate in proj4 format"
                  attr(object,"elevation")<-"Elevation in meters"	
                  attr(object,"geonotes ")<-"Annotations in regard to the contest of observation"
