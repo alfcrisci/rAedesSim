@@ -21,8 +21,10 @@ data("redlav_2012_meteo")
 data("redlav_2012_monitoring")
 
 #################################################################################################
-# Load different weather water models respectively for different mosquitos habitat trap as (a) standard recipients and (b) tombino as manhole.
- 
+# Load different weather based watermodels for two different mosquito habitat 
+# trap indicates a standard recipient 
+# tombino indicates a urban manhole
+
 data(trap_tosc_wmodel)
 data(tombino_tosc_wmodel)
 
