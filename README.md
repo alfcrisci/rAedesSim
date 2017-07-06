@@ -13,11 +13,20 @@ An example of operative work-chain
 
 ```R
 
+
+########################################################################################################################
+
 library(rAedesSim)
 
-# install the packages from CRAN if is necessary.
+# install these packages from CRAN if is necessary.
 
-if (!require(dygraphs) || !require(XLConnect) ) { install.packages(c("dygraphs","XLConnect")) }
+if (!require(dygraphs) || !require(XLConnect) || !require(htmlwidgets))
+    { install.packages(c("dygraphs","XLConnect","htmlwidgets"))}
+
+########################################################################################################################
+
+
+library(htmlwidgets) # excel writing
 
 library(dygraph) # htmlwidget plots
 library(XLConnect) # excel writing
@@ -160,7 +169,7 @@ if (file.exists(name_out_excel)) {file.remove(name_out_excel)}
 XLConnect::writeWorksheetToFile(name_out_excel,datasim,"C_della_Pescaia_P4")
 
 #################################################################################################
-# Plot paramter courbes
+# Plot paramter courbes by using dygraphs JS library
 
 guess_simulation_tomb$simulation$ts_parameter$index_day=NULL
 guess_simulation_tomb$simulation$ts_parameter$d_emergency=NULL
@@ -170,12 +179,13 @@ guess_simulation_tomb$simulation$ts_parameter$inib_state=NULL
 guess_simulation_tomb$simulation$ts_parameter$mu=guess_simulation_tomb$simulation$ts_parameter$mu/100 
 # reduce eggs mortality to 0- 1 range
 
-#################################################################################################
-#  recursive grid search of alpha adults and alpha larvae parameters
+param_ts=dygraph(guess_simulation_tomb$simulation$ts_parameter, xlab = "Year", ylab = "Rate")
 
-dygraph(guess_simulation_tomb$simulation$ts_parameter, xlab = "Year", ylab = "Rate")
+htmlwidgets::saveWidget(param_ts, file="C_della_Pescaia_params.html", selfcontained = TRUE) 
 
-dygraph(C_Pescaia_P4_bio_tombino$timeseries[,c("emergency","d_induction")], xlab = "Year", ylab = "Rate")
+egg_courbes=dygraph(C_Pescaia_P4_bio_tombino$timeseries[,c("emergency","d_induction")], xlab = "Year", ylab = "Daily rate")
+
+htmlwidgets::saveWidget(egg_courbes, file="C_della_Pescaia_egg_courbes.html", selfcontained = TRUE) 
 
 #################################################################################################
 #  recursive grid search of alpha adults and alpha larvae parameters
