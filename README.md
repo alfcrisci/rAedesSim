@@ -24,15 +24,15 @@ if (!require(dygraphs) || !require(XLConnect) || !require(htmlwidgets))
     { install.packages(c("dygraphs","XLConnect","htmlwidgets"))}
 
 ########################################################################################################################
+# Load librariea 
 
-
-library(htmlwidgets) # excel writing
-
+library(htmlwidgets) # R JS widgets management
 library(dygraph) # htmlwidget plots
 library(XLConnect) # excel writing
 
 ###########################################################################################################################
 # Load some meteorological data obtained by Weather Local Model simulations for 2012 in REDLAV coastal locations in Tuscany.
+# Simulation were carried at LaMMA Consortium ( www-lamma.rete.toscana.it ).
 
 data("redlav_2012_meteo")
 data("redlav_2012_monitoring")
