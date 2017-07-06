@@ -82,10 +82,9 @@ biodata <- function(ID="",
 				   	
 					
 				   if ( is.null(sourcedata)) { stop( "To build meteodata valid object almost a data source is required.\n 
-                                   					   Date of day in YYYY-MM-DD format (dates), 
-													                     parameter field. Checking Header is suggested to avoid variable error." 
-													           ) 
-					 } 
+                                   			              Date of day in YYYY-MM-DD format (dates),parameter field. 
+                                                                      Checking header data names to avoid variable error.") 
+					                       } 
 				   
 				   #################################################################################################################
 				  
@@ -98,7 +97,7 @@ biodata <- function(ID="",
 				                                }
 					
 				    ts_zoo=NULL;
-				    ts_zoo=try(as.xts(zoo(filedata$parameter,as.Date(as.character(filedata$dates)))));
+				    ts_zoo=try(as.xts(zoo(filedata$parameter,as.Date(as.character(filedata$dates,tz=timezone)))));
 
 				    if ( is.null(ts_zoo))
 				       { stop( "Timeseries creation was invalid! Check data and dates in data sources")
@@ -123,6 +122,7 @@ biodata <- function(ID="",
 				                  lat = lat_geo,
 				                  lon = lon_geo,
 				                  elevation = elevation,
+						  timezone = "Europe/Rome",
 				                  CRS = epgs4386,
 				                  geonotes = geonotes,
 				                  urban = urban,
@@ -149,7 +149,8 @@ biodata <- function(ID="",
                  attr(object,"lon")<-"longitude coordinates of  site where data are collected"
 	         attr(object,"timezone")<-"longitude coordinates of  where data are collected"
                  attr(object,"CRS")<-"Projection of coordinate in proj4 format"
-                 attr(object,"elevation")<-"Elevation in meters"	
+                 attr(object,"elevation")<-"Elevation in meters"
+	         attr(object,"timezone")<-"longitude coordinates of  where data are collected"
                  attr(object,"geonotes ")<-"Annotations in regard to the contest of observation"
                  attr(object,"urban")<-"Flag indicating if data belong to urban area"
                  attr(object,"nasa_radiance ")<-"NASA Night radiance value. Is a proxy for urbanization"
