@@ -196,8 +196,8 @@ htmlwidgets::saveWidget(egg_courbes, file="C_della_Pescaia_egg_courbes.html", se
 #################################################################################################
 #  recursive grid search of alpha adults and alpha larvae parameters
 
-simulation_fit=biofitmodel(i_biometeo=i_biometeo,
-                           i_biopopulation=i_biopopulation,
+simulation_fit=biofitmodel(i_biometeo=C_Pescaia_P4_bio_tombino,
+                           i_biopopulation=ini_population,
                            i_biocontainer=i_biocontainer_tomb,
                            i_monitoring=C_della_Pescaia_P4_monitoring,
                            range_alpha_a=c(0,seq(1,2.5,0.2)),
