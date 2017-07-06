@@ -153,8 +153,11 @@ obs=data.frame(date=rownames(as.data.frame(C_della_Pescaia_P4_monitoring$ts_data
 
 datasim=merge(datasim,obs)
 
+name_out_excel="C_della_Pescaia_P4_simulation.xls"
 
-XLConnect::writeWorksheetToFile("C_della_Pescaia_P4_simulation.xls",datasim,"C_della_Pescaia_P4")
+if (file.exists(name_out_excel)) {file.remove(name_out_excel)}
+
+XLConnect::writeWorksheetToFile(name_out_excel,datasim,"C_della_Pescaia_P4")
 
 #################################################################################################
 # Plot paramter courbes
