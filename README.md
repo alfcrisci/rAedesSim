@@ -80,7 +80,7 @@ ini_population=biopopulation(eggs=0,larvae=0,pupae=0,adults=0,eggs_diap=iniegg)
 simulation=biomodel(i_biometeo=C_Pescaia_P4_bio_tombino,
                     i_biocontainer=i_biocontainer_tomb,                            
                     i_biopopulation=ini_population,
-                    i_bioparameters= bioparameters(alfa_l=1,alfa_a=0,l_density=40)
+                    i_bioparameters= bioparameters(alfa_l=0.5,alfa_a=5,l_density=50)
                     )
 
 
