@@ -78,7 +78,7 @@ biometeo=function (meteo,
     tmin = meteo$tmin + deltatmin
     tmed = meteo$tmed + deltatmed
 	
-    dates = as.Date(as.character(meteo$dates))
+    dates = as.Date(as.character(meteo$dates),tz=timezone)
 	
     day_len = day_length(dates, as.numeric(i_biocontainer$lon),as.numeric(i_biocontainer$lat))$daylength
 	
@@ -145,31 +145,33 @@ biometeo=function (meteo,
                    weight_k = weigth_k,
                    weight_dry = weight_dry, 
                    timeformat = meteo$timeformat, 
-                   dates = dates, 
+                   dates = dates,
+		   timezone=timezone,
                    timeseries = ts_zoo,
 		   datemax = datemax, 
                    bounddays = bounddays, 
                    varjd = varjd
 		   )
 
-    attr(object, "tmed_est") <- "Daily mean air temperature estimated."
-    attr(object, "twater_est") <- "Daily mean water temperature estimated."
-    attr(object, "prec") <- "Daily precipitation."
-    attr(object, "rhum") <- "Daily evaporation."
-    attr(object, "tot_evap") <- "Mass of evaporative losses for day in mg."
-    attr(object, "tresh_rain_dry") <- "Rain threshold to consider effective precipitation."
-    attr(object, "prevdrydays") <- "Consecutive dry days previously accerted."
-    attr(object, "weight_k") <- "Weighting Paraemter to take into account dryness impact."
-    attr(object, "daylength") <- "Daylengths."
-    attr(object, "ndays") <- "Number of days."
-    attr(object, "d_emergency") <- "Percentage of exclosion of daily diapausant eggs in springtime."
+    attr(object, "tmed_est") <- "Daily mean air temperature estimated"
+    attr(object, "twater_est") <- "Daily mean water temperature estimated"
+    attr(object, "prec") <- "Daily precipitation"
+    attr(object, "rhum") <- "Daily evaporation"
+    attr(object, "tot_evap") <- "Mass of evaporative losses for day in mg"
+    attr(object, "tresh_rain_dry") <- "Rain threshold to consider effective precipitation"
+    attr(object, "prevdrydays") <- "Consecutive dry days previously accerted"
+    attr(object, "weight_k") <- "Weighting Paraemter to take into account dryness impact"
+    attr(object, "daylength") <- "Daylength"
+    attr(object, "ndays") <- "Number of days"
+    attr(object, "d_emergency") <- "Percentage of exclosion of daily diapausant eggs in springtime"
     attr(object, "d_induction") <- "Percentage of daily autumnal diapausant eggs"
     attr(object, "dates") <- "Dates"
-    attr(object, "timeformat") <- "Period of data aggregation."
-    attr(object, "timeseries") <- "Data as xts object." 
-    attr(object, "datemax") <- "Julian day of maximal date of spring diapause awekaning."
-    attr(object, "bounddays") <- "Days of incertainty for diapause emergency period bounds."
-    attr(object, "varjd") <- "Days of variance for diapause emergency courbes."
+    attr(object, "timezone") <- "Timezone"
+    attr(object, "timeformat") <- "Period of data aggregation"
+    attr(object, "timeseries") <- "Data as xts object" 
+    attr(object, "datemax") <- "Julian day of maximal date of spring diapause awekaning"
+    attr(object, "bounddays") <- "Days of incertainty for diapause emergency period bounds"
+    attr(object, "varjd") <- "Days of variance for diapause emergency courbes"
     class(object) <- "biometeo"
     return(object)
 }
