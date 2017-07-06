@@ -23,7 +23,7 @@ data("redlav_2012_monitoring")
 
 
 #################################################################################################
-# Load different weather-water models respectively for a different trap mosquito traps or manhole.
+# Load different weather water models respectively for different mosquitos habitat trap as (a) traps and (b) tombino as manhole.
  
 data(trap_tosc_wmodel)
 data(tombino_tosc_wmodel)
