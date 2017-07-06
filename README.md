@@ -78,7 +78,7 @@ iniegg=400 # winter diapause initial eggs
 maxjd=140 # maximal jd of diapausant eggs exclosion.
 varianceday=15 # temporal variance of diapausant eggs exclosion courbe  
 inistep=15 # first steps used for parameter fitting.
-mean_egg=85 # mean eggs given by gonotrophyc cycle
+mean_egg=85 # average eggs given by a female during 1 gonotrophyc cycle
 starting_day_simulation=61 # 1 march for italy
 
 
@@ -105,6 +105,15 @@ C_Pescaia_P4_bio_trap=biometeo(C_della_Pescaia_P4_meteo_2012,
 
 
 #########################################################################################################
+# The context of simulation considered for Castiglione della Pescaia :
+
+# season startday: 1 march jday 61
+# spring time  period (jday) : 61 to [61 +140]
+# autumn time  period (jday) : [365-130] to 365 
+# thermal bias 3 celsius degrees for air and water.
+# first 15 observative step of monitoring
+# mean egg for female:  85 eggs
+
 guess_simulation_tomb=check_fit_initial(C_Pescaia_P4_bio_tombino,
                                         monitor_temp,
                                         i_biocontainer_tomb,
@@ -124,7 +133,7 @@ guess_simulation_tomb=check_fit_initial(C_Pescaia_P4_bio_tombino,
 
 
 
-guess_simulation_tomb$resfig_all
+guess_simulation_tomb$resfig_all   # results 
 
 
 ############################################################################################################
@@ -143,17 +152,16 @@ obs=data.frame(date=rownames(as.data.frame(C_della_Pescaia_P4_monitoring$ts_data
 datasim=merge(datasim,obs)
 
 
-XLConnect::writeWorksheetToFile("(C_della_Pescaia_P4_simulation.xls"),datasim,"C_della_Pescaia_P4")
-
+XLConnect::writeWorksheetToFile("C_della_Pescaia_P4_simulation.xls",datasim,"C_della_Pescaia_P4")
 
 #################################################################################################
-# Plot courbes
+# Plot paramter courbes
 
-guess_simulation_tomb$simulation$ts_parameter$mu=res$simulation$ts_parameter$mu/100 
 guess_simulation_tomb$simulation$ts_parameter$index_day=NULL
 guess_simulation_tomb$simulation$ts_parameter$d_emergency=NULL
-guess_simulation_tomb$simulation$ts_parameter$d_indutction=NULL
+guess_simulation_tomb$simulation$ts_parameter$d_induction=NULL
 guess_simulation_tomb$simulation$ts_parameter$inib_state=NULL
+guess_simulation_tomb$simulation$ts_parameter$mu=res$simulation$ts_parameter$mu/100 # reduce eggs mortality
 
 #################################################################################################
 #  recursive grid search of alpha adults and alpha larvae parameters
@@ -164,8 +172,6 @@ dygraph(C_Pescaia_P4_bio_tombino$timeseries[,c("emergency","d_induction")], xlab
 
 #################################################################################################
 #  recursive grid search of alpha adults and alpha larvae parameters
-
-
 
 simulation_fit=biofitmodel(i_biometeo=i_biometeo,
                            i_biopopulation=i_biopopulation,
@@ -184,7 +190,6 @@ simulation_fit
 # work of rAedesSim object 
 
 viewwhere(i_biocontainer_tomb)
-
 
 
 
