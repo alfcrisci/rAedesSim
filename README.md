@@ -123,7 +123,7 @@ guess_simulation_tomb=check_fit_initial(C_Pescaia_P4_bio_tombino,
                                         adu_alpha=2,
                                         eggs_diap=iniegg,
                                         egn=85,
-                                        Ndayscenario_prim=140,
+                                        Ndayscenario_prim=150,
                                         Ndayscenario_aut=130,
                                         ini_rmse = 1,
                                         end_rmse=15,
@@ -163,7 +163,9 @@ guess_simulation_tomb$simulation$ts_parameter$index_day=NULL
 guess_simulation_tomb$simulation$ts_parameter$d_emergency=NULL
 guess_simulation_tomb$simulation$ts_parameter$d_induction=NULL
 guess_simulation_tomb$simulation$ts_parameter$inib_state=NULL
-guess_simulation_tomb$simulation$ts_parameter$mu=res$simulation$ts_parameter$mu/100 # reduce eggs mortality
+
+guess_simulation_tomb$simulation$ts_parameter$mu=guess_simulation_tomb$simulation$ts_parameter$mu/100 
+# reduce eggs mortality to 0- 1 range
 
 #################################################################################################
 #  recursive grid search of alpha adults and alpha larvae parameters
