@@ -56,6 +56,12 @@ i_biocontainer_trap=biocontainer(nrecipients=1,
 
 Castiglione_della_Pescaia_P4_monitoring=redlav_2012_monitoring[[4]]
 
+# monitoring egg data are weekly and dividing for the number of days of interval 
+# a daily mean egg production is obtained. It is useful for model verification.
+
+Castiglione_della_Pescaia_P4_monitoring=Castiglione_della_Pescaia_P4_monitoring$ts_data/7
+
+
 Castiglione_della_Pescaia_P4_meteo_2012=redlav_2012_meteo[[4]]
 
 #######################################################################################################################
@@ -84,7 +90,7 @@ ini_population=biopopulation(eggs=0,larvae=0,pupae=0,adults=0,eggs_diap=iniegg)
 simulation=biomodel(i_biometeo=C_Pescaia_P4_bio_tombino,
                     i_biocontainer=i_biocontainer_tomb,                            
                     i_biopopulation=ini_population,
-                    i_bioparameters= bioparameters(alfa_l=0.5,alfa_a=5,l_density=50)
+                    i_bioparameters= bioparameters(alfa_l=0.5,alfa_a=5)
                     )
 
 
