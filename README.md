@@ -117,7 +117,7 @@ C_Pescaia_P4_bio_trap=biometeo(C_della_Pescaia_P4_meteo_2012,
 # mean egg for female:  85 eggs
 
 guess_simulation_tomb=check_fit_initial(C_Pescaia_P4_bio_tombino,
-                                        monitor_temp,
+                                        C_della_Pescaia_P4_monitoring,
                                         i_biocontainer_tomb,
                                         larv_alpha=0.8,
                                         adu_alpha=2,
