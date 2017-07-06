@@ -54,15 +54,15 @@ i_biocontainer_trap=biocontainer(nrecipients=1,
 # Retrieve biodata and meteodata objects respectively obtained from local mosquito eggs monitoring 
 # and meteorological simulated weather data  
 
-Castiglione_della_Pescaia_P4_monitoring=redlav_2012_monitoring[[4]]
+C_della_Pescaia_P4_monitoring=redlav_2012_monitoring[[4]]
 
 # monitoring egg data are weekly and dividing the ones by the number of days of monitoring interval 
 # a daily egg laying activity is obtained. It is useful to find best model's fitting parameters.
 
-Castiglione_della_Pescaia_P4_monitoring=Castiglione_della_Pescaia_P4_monitoring$ts_data/7
+C_della_Pescaia_P4_monitoring=C_della_Pescaia_P4_monitoring$ts_data/7
 
 
-Castiglione_della_Pescaia_P4_meteo_2012=redlav_2012_meteo[[4]]
+C_della_Pescaia_P4_meteo_2012=redlav_2012_meteo[[4]]
 
 
 ##################################################################################################
@@ -80,16 +80,29 @@ starting_day_simulation=61 # 1 march for italy
 # from field monitoring or simulated by using weather/environmental models.
 
 
-C_Pescaia_P4_bio_tombino=biometeo(Castiglione_della_Pescaia_P4_meteo_2012,
-                                   start_day=starting_day_simulation,
+C_Pescaia_P4_bio_tombino=biometeo(C_della_Pescaia_P4_meteo_2012,
+                                   startday=starting_day_simulation,
 				   i_biocontainer_tomb)
 
-C_Pescaia_P4_bio_trap=biometeo(Castiglione_della_Pescaia_P4_meteo_2012,
-                                start_day=starting_day_simulation,
+C_Pescaia_P4_bio_trap=biometeo(C_della_Pescaia_P4_meteo_2012,
+                                startday=starting_day_simulation,
 				i_biocontainer_trap)
 
 ini_population=biopopulation(eggs=0,larvae=0,pupae=0,adults=0,eggs_diap=iniegg)
 
+guess_simulation_tomb=check_fit_initial(C_Pescaia_P4_bio_tombino,
+                                        C_della_Pescaia_P4_monitoring,
+                                        i_biocontainer_tomb,
+                                        larv_alpha=0.5,
+                                        adu_alpha=5,
+                                        eggs_diap=iniegg,
+                                        egn=95,
+                                        ini_rmse = 1,
+                                        end_rmse=15
+                                        )
+
+
+guess_simulation_tomb$resfig_all
 
 
 simulation=biomodel(i_biometeo=C_Pescaia_P4_bio_tombino,
