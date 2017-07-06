@@ -124,7 +124,7 @@ guess_simulation_tomb$resfig_all
 
 
 
-<iframe width="560" height="315" src="castiglione_pescaia_tombino_guess.html" frameborder="0" allowfullscreen="allowfullscreen">
+<iframe width="560" height="315" src="castiglione_pescaia_tombino_guess.html" frameborder="0">
 </iframe>
 
 
