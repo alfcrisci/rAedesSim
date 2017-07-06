@@ -80,7 +80,7 @@ iniegg=400 # winter diapause initial eggs
 maxjd=140 # maximal jd of diapausant eggs exclosion.
 varianceday=15 # temporal variance of diapausant eggs exclosion courbe  
 inistep=15 # first steps used for parameter fitting.
-mean_egg=85 # average eggs given by a female during 1 gonotrophyc cycle
+mean_egg=95 # average eggs given by a female during 1 gonotrophyc cycle
 starting_day_simulation=61 # 1 march for italy
 
 
@@ -114,7 +114,7 @@ C_Pescaia_P4_bio_trap=biometeo(C_della_Pescaia_P4_meteo_2012,
 # autumn time  period (jday) : [365-130] to 365 
 # thermal bias 3 celsius degrees for air and water.
 # first 15 observative step of monitoring
-# mean egg for female:  85 eggs
+# mean egg for female:  95 eggs
 
 guess_simulation_tomb=check_fit_initial(C_Pescaia_P4_bio_tombino,
                                         C_della_Pescaia_P4_monitoring,
