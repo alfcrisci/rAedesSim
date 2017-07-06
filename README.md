@@ -56,8 +56,8 @@ i_biocontainer_trap=biocontainer(nrecipients=1,
 
 Castiglione_della_Pescaia_P4_monitoring=redlav_2012_monitoring[[4]]
 
-# monitoring egg data are weekly and dividing for the number of days of interval 
-# a daily mean egg production is obtained. It is useful for model verification.
+# monitoring egg data are weekly and dividing the ones by the number of days of monitoring interval 
+# a daily egg laying activity is obtained. It is useful to find best model's fitting parameters.
 
 Castiglione_della_Pescaia_P4_monitoring=Castiglione_della_Pescaia_P4_monitoring$ts_data/7
 
