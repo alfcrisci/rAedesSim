@@ -15,6 +15,7 @@
 #' @param bounddays numeric Days of incertainty for diapause emergency period bounds. Default is 10.
 #' @param varjd numeric Days of variance for  diapause emergency courbes. Default is 10.
 #' @param truncated logical Modeling with truncated gaussian respecting the limits. Default is FALSE.
+#' @param timezone character Timezone. Default is Europe/Rome.
 #' @return  Return a biometeo object.
 #' @author  Istituto di Biometeorologia Firenze Italy  Alfonso crisci \email{a.crisci@@ibimet.cnr.it} ASL LUCCA Marco Selmi \email{marco.selmi@@uslnordovest.toscana.it }
 #' @keywords  container
