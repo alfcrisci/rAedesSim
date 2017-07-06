@@ -55,6 +55,7 @@ i_biocontainer_trap=biocontainer(nrecipients=1,
 # and meteorological simulated weather data  
 
 Castiglione_della_Pescaia_P4_monitoring=redlav_2012_monitoring[[4]]
+
 Castiglione_della_Pescaia_P4_meteo_2012=redlav_2012_meteo[[4]]
 
 #######################################################################################################################
