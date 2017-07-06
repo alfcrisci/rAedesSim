@@ -220,7 +220,7 @@ htmlwidgets::saveWidget(egg_courbes, file="C_della_Pescaia_egg_courbes.html", se
 
 ##################################################################################################
 # viewwhere is a function to perform a fast visualisation of simulation in its urban context.
-# work of rAedesSim object 
+# it works on rAedesSim objects with geographical insigths. ( lon and lat ). 
 
 viewwhere(i_biocontainer_tomb)
 
