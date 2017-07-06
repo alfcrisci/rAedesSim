@@ -12,9 +12,13 @@ devtools::install_github("alfcrisci/rAedesSim")
 An example of operative work-chain 
 
 ```R
+
 library(rAedesSim)
-library(dygraph)
-library(XLConnect)
+
+# install the packages from CRAN install.packages(c("dygraph","XLConnect") if is necessary.
+
+library(dygraph) # htmlwidget plots
+library(XLConnect) # excel writing
 
 ###########################################################################################################################
 # Load some meteorological data obtained by Weather Local Model simulations for 2012 in REDLAV coastal locations in Tuscany.
@@ -122,15 +126,42 @@ guess_simulation_tomb=check_fit_initial(C_Pescaia_P4_bio_tombino,
 
 guess_simulation_tomb$resfig_all
 
+
+############################################################################################################
+# Write results
+
+datasim=data.frame(date=rownames(as.data.frame(guess_simulation_tomb$simulation$ts_population)),
+                   as.data.frame(guess_simulation_tomb$simulation$ts_population),
+                   as.data.frame(guess_simulation_tomb$simulation$ts_parameter),
+                   as.data.frame(i_biometeo_tomb$timeseries)
+                   )
+
+obs=data.frame(date=rownames(as.data.frame(C_della_Pescaia_P4_monitoring$ts_data[,1])),
+           observed=C_della_Pescaia_P4_monitoring$ts_data[,1],
+	   row.names = NULL)
+
+datasim=merge(datasim,obs)
+
+
+XLConnect::writeWorksheetToFile("(C_della_Pescaia_P4_simulation.xls"),datasim,"C_della_Pescaia_P4")
+
+
+#################################################################################################
+# Plot courbes
+
 guess_simulation_tomb$simulation$ts_parameter$mu=res$simulation$ts_parameter$mu/100 
+guess_simulation_tomb$simulation$ts_parameter$index_day=NULL
+guess_simulation_tomb$simulation$ts_parameter$d_emergency=NULL
+guess_simulation_tomb$simulation$ts_parameter$d_indutction=NULL
+guess_simulation_tomb$simulation$ts_parameter$inib_state=NULL
+
+#################################################################################################
+#  recursive grid search of alpha adults and alpha larvae parameters
 
 dygraph(guess_simulation_tomb$simulation$ts_parameter, xlab = "Year", ylab = "Rate")
-dygraph(i_biometeo$timeseries[,c("emergency","d_induction")], xlab = "Year", ylab = "Rate")
 
+dygraph(C_Pescaia_P4_bio_tombino$timeseries[,c("emergency","d_induction")], xlab = "Year", ylab = "Rate")
 
-
-
-					
 #################################################################################################
 #  recursive grid search of alpha adults and alpha larvae parameters
 
@@ -141,7 +172,7 @@ simulation_fit=biofitmodel(i_biometeo=i_biometeo,
                            i_biocontainer=i_biocontainer_tomb,
                            i_monitoring=C_della_Pescaia_P4_monitoring,
                            range_alpha_a=c(0,seq(1,2.5,0.2)),
-                           range_alpha_l=seq(0.6,1.2,0.2),
+                           range_alpha_l=seq(0.8,1.2,0.2),
                            plotresults=TRUE
 			   )	
 
