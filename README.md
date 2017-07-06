@@ -43,7 +43,6 @@ i_biocontainer_tomb=biocontainer(nrecipients=1,
                                  
 i_biocontainer_trap=biocontainer(nrecipients=1,
                                  watermodel=trap_tosc_wmodel,
-                                 model_type="lin",
                                  lat=42.76090556,
                                  lon=10.88788889,
                                  elevation=5)
