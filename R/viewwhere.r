@@ -18,7 +18,7 @@ viewwhere<-function(object,zoom = 17){
 		            { stop("Object  must be have coordinates lat and lon slot." )};
                   m = leaflet() %>% addTiles()
                   m = m %>% setView(object$lon, object$lat, zoom = zoom)
-                  m %>% addPopups(object$lon,object$lat, paste0('The location of the oject is here!'))
+                  m = m %>% addPopups(object$lon,object$lat, paste0('The location of the rAedesSim object is here!'))
          return(m)
 
 }
