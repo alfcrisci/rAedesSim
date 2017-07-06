@@ -125,11 +125,35 @@ C_Pescaia_P4_bio_trap=biometeo(C_della_Pescaia_P4_meteo_2012,
 # first 15 observative step of monitoring
 # mean egg for female:  95 eggs
 
+#################################################################################################
+#  Finding by recursive search the intra-stage competition parameters (alpha adults and alpha larvs) by RMSE minimization.
+# These paramters are linked to whole carring capacity of environemnt taking into account that the two main not static phases
+# ( larvs and adults) have deep and different exigence in terms of nutrition and density-dependent envirnnmental paramters.
+
+
+simulation_fit=biofitmodel(i_biometeo=C_Pescaia_P4_bio_tombino,
+                           i_biopopulation=ini_population,
+                           i_biocontainer=i_biocontainer_tomb,
+                           i_monitoring=C_della_Pescaia_P4_monitoring,
+                           range_alpha_a=c(0,seq(1,2.5,0.2)),
+                           range_alpha_l=seq(0.8,1.2,0.2),
+                           plotresults=TRUE
+			   )	
+
+simulation_fit$guess_parameter # grid of parameters
+
+simulation_fit$best_simul_RMSE # best RMSE
+
+simulation_fit$par_fitted_best # in this case grid search have found alpha adults near to 1.8 ; alpha larvs near to 0.8.  
+
+######################################################################################################################
+# simulation and verification by using not diapausant periods of population development.
+
 guess_simulation_tomb=check_fit_initial(C_Pescaia_P4_bio_tombino,
                                         C_della_Pescaia_P4_monitoring,
                                         i_biocontainer_tomb,
                                         larv_alpha=0.8,
-                                        adu_alpha=2,
+                                        adu_alpha=1.8,
                                         eggs_diap=iniegg,
                                         egn=85,
                                         Ndayscenario_prim=150,
@@ -150,8 +174,8 @@ guess_simulation_tomb$resfig_all
 # Verification observed vs full_eggs because rAedesSim give daily eggs productivity as main products. 
 # Post summer observations contains diapausant eggs and the model outcomes give only daily values as mean of weekly,
 # doesn't take into account a persistence over a week. 
-# Field observation every week reset the numeber of aedes eggs in the trap and diapausant ones are generally lost.
-
+# Field observation every week resets the numeber of aedes eggs cointained in the trap 
+# and the diapausant ones are generally lost producing a bias in verification when diapause-enabled models are used.
 
 ############################################################################################################
 # Write results
@@ -193,20 +217,6 @@ egg_courbes=dygraph(C_Pescaia_P4_bio_tombino$timeseries[,c("emergency","d_induct
 
 htmlwidgets::saveWidget(egg_courbes, file="C_della_Pescaia_egg_courbes.html", selfcontained = TRUE) 
 
-#################################################################################################
-#  recursive grid search of alpha adults and alpha larvae parameters
-
-simulation_fit=biofitmodel(i_biometeo=C_Pescaia_P4_bio_tombino,
-                           i_biopopulation=ini_population,
-                           i_biocontainer=i_biocontainer_tomb,
-                           i_monitoring=C_della_Pescaia_P4_monitoring,
-                           range_alpha_a=c(0,seq(1,2.5,0.2)),
-                           range_alpha_l=seq(0.8,1.2,0.2),
-                           plotresults=TRUE
-			   )	
-
-
-simulation_fit
 
 ##################################################################################################
 # viewwhere is a function to perform a fast visualisation of simulation in its urban context.
