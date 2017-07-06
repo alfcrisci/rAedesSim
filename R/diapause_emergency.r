@@ -30,7 +30,7 @@ diapause_emergency=function(dates,
    set.seed(0.5)
   
    jd=as.numeric(format(as.Date(dates),"%j"))
-   photo=rAedesSim::day_length(dates,lon,lat)$daylength
+   photo=day_length(dates,lon,lat)$daylength
    
   jdmax=ifelse(jdmax>max(jd),max(jd),jdmax)
   jdmax=ifelse(jdmax>min(jd),jdmax,min(jd)) 
@@ -41,8 +41,6 @@ diapause_emergency=function(dates,
    jd_ini=ifelse(jd_ini > jdmax,jdmax,jd_ini)
    mid_jd=(jd_ini+jdmax)/2
    
-   # d_dis_day=dnorm((jd_ini-bounddays):(jdmax+bounddays), mean = mid_jd, sd=varjd)
-  
    d_dis_day=dnorm((jd_ini-bounddays):(jdmax), mean = mid_jd-bounddays/2, sd=varjd)
    
    scaled_dis_day=d_dis_day/sum(d_dis_day);
