@@ -64,10 +64,10 @@ i_biocontainer_trap=biocontainer(nrecipients=1,
 
 C_della_Pescaia_P4_monitoring=redlav_2012_monitoring[[4]]
 
-# monitoring egg data are weekly and dividing the ones by the number of days of monitoring interval 
+# monitoring egg data in ts_data sub_object are weekly and dividing the ones by the number of days of monitoring interval 
 # a daily egg laying activity is obtained. It is useful to find best model's fitting parameters.
 
-C_della_Pescaia_P4_monitoring=C_della_Pescaia_P4_monitoring$ts_data/7
+C_della_Pescaia_P4_monitoring$ts_data=C_della_Pescaia_P4_monitoring$ts_data/7
 
 
 C_della_Pescaia_P4_meteo_2012=redlav_2012_meteo[[4]]
