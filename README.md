@@ -48,7 +48,11 @@ i_biocontainer_trap=biocontainer(nrecipients=1,
                                  elevation=5)
 
 #################################################################################################
-# Retrieve biodata object obtained from local mosquito eggs monitoring and meteorological data  
+# To perform simulation and to fit the  best parameters for a selected location.
+# Castiglione_della_Pescaia
+
+# Retrieve biodata and meteodata objects respectively obtained from local mosquito eggs monitoring 
+# and meteorological simulated weather data  
 
 Castiglione_della_Pescaia_P4_monitoring=redlav_2012_monitoring[[4]]
 Castiglione_della_Pescaia_P4_meteo_2012=redlav_2012_meteo[[4]]
@@ -92,32 +96,13 @@ simulation=biomodel(i_biometeo=C_Pescaia_P4_bio_tombino,
 
 viewwhere(simulation)
 
-##################################################################################################
-# Fitting parametrs for  one location
-# Castiglione_della_Pescaia ad view plot Observed vs Simulated Eggs.
-
-
-i_biocontainer=biocontainer(nrecipients=1,
-                                 watermodel=trappola_wmodel,
-                                 model_type="lin",
-                                 lat=Castiglione_della_Pescaia_P4_monitoring$lat,
-                                 lon=Castiglione_della_Pescaia_P4_monitoring$lon,
-                                 elevation=Castiglione_della_Pescaia_P4_monitoring$elevation
-								 )
-
-i_biometeo=biometeo(Castiglione_della_Pescaia_P4_meteo_2012,i_biocontainer)
-
-
-i_biopopulation=biopopulation(eggs=0,larvae=0,pupae=0,adults=0,eggs_diap=10)
-
 
 simulation_fit=biofitmodel(i_biometeo=i_biometeo,
                            i_biopopulation=i_biopopulation,
                            i_biocontainer=i_biocontainer,
                            i_monitoring=Castiglione_della_Pescaia_P4_monitoring,
-                           range_alpha_a=c(0,seq(0,0.002,0.001)),
+                           range_alpha_a=c(0,seq(0,5,1)),
                            range_alpha_l=seq(0.6,1.6,0.2),
-                           range_density_l=70,
                            plotresults=TRUE
 			   )	
 
