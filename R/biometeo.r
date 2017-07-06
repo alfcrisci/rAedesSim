@@ -36,7 +36,8 @@ biometeo=function (meteo,
                    datemax = 110, 
                    bounddays = 10, 
                    varjd = 10, 
-                   truncated = FALSE
+                   truncated = FALSE,
+		   timezone="Europe/Rome"
 		  ) 
 {
     if (class(meteo) != "meteodata") 
@@ -56,7 +57,7 @@ biometeo=function (meteo,
         stop("Time series is singular.")
        }
 	
-    jd = as.numeric(format(as.Date(meteo$dates), "%j"))
+    jd = as.numeric(format(as.Date(meteo$dates,tz=timezone), "%j"))
 	
     startday_jd = jd[startday]
 	
