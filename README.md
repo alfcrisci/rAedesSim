@@ -144,7 +144,13 @@ guess_simulation_tomb=check_fit_initial(C_Pescaia_P4_bio_tombino,
 
 
 
-guess_simulation_tomb$resfig_all   # results 
+guess_simulation_tomb$resfig_all   
+
+# Calling this subobject plots the temporal populations of eaach stage given by  daily simulation. 
+# Verification observed vs full_eggs because rAedesSim give daily eggs productivity as main products. 
+# Post summer observations contains diapausant eggs and the model outcomes give only daily values as mean of weekly,
+# doesn't take into account a persistence over a week. 
+# Field observation every week reset the numeber of aedes eggs in the trap and diapausant ones are generally lost.
 
 
 ############################################################################################################
