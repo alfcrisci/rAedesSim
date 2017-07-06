@@ -64,15 +64,6 @@ Castiglione_della_Pescaia_P4_monitoring=Castiglione_della_Pescaia_P4_monitoring$
 
 Castiglione_della_Pescaia_P4_meteo_2012=redlav_2012_meteo[[4]]
 
-#######################################################################################################################
-# The information to assess local environmental parameters linked to the water are contained in biocontainer object.
-# Hence biometeo objects merge the information of geograpical/topographical location features and meteorological data obtained 
-# from field monitoring or simulated by using weather/environmental models.
-
-
-C_Pescaia_P4_bio_tombino=biometeo(Castiglione_della_Pescaia_P4_meteo_2012,i_biocontainer_tomb)
-
-C_Pescaia_P4_bio_trap=biometeo(Castiglione_della_Pescaia_P4_meteo_2012,i_biocontainer_trap)
 
 ##################################################################################################
 # How to perform a simulation. 
@@ -81,7 +72,21 @@ iniegg=50 # winter diapause initial eggs
 maxjd=140 # maximal jd of diapausant eggs exclosion.
 varianceday=15 # temporal variance of diapausant eggs exclosion courbe  
 inistep=15 # first steps used for parameter fitting.
+starting_day_simulation=61 # 1 march for italy
 
+#######################################################################################################################
+# The information to assess local environmental parameters linked to the water are contained in biocontainer object.
+# Hence biometeo objects merge the information of geograpical/topographical location features and meteorological data obtained 
+# from field monitoring or simulated by using weather/environmental models.
+
+
+C_Pescaia_P4_bio_tombino=biometeo(Castiglione_della_Pescaia_P4_meteo_2012,
+                                   start_day=starting_day_simulation,
+				   i_biocontainer_tomb)
+
+C_Pescaia_P4_bio_trap=biometeo(Castiglione_della_Pescaia_P4_meteo_2012,
+                                start_day=starting_day_simulation,
+				i_biocontainer_trap)
 
 ini_population=biopopulation(eggs=0,larvae=0,pupae=0,adults=0,eggs_diap=iniegg)
 
