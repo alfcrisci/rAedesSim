@@ -3,22 +3,21 @@
 #' @description Calculate the raw lenght of day in hours related to the date
 #' 
 #' @param dates  Date in  YMD format   
-#' @param lon Numerical Geographical Longitude of site in decimal degrees (negative == West) . Default is 11.10.
-#' @param lat Numeric Geographical Latitude of site in decimal degrees. Default is 43.77.
-#' @param timezone character  Default is "Europe/Rome".
+#' @param lon numeric Geographical Longitude of site in decimal degrees (negative == West) . Default is 11.10.
+#' @param lat numeric Geographical Latitude of site in decimal degrees. Default is 43.77.
+#' @param timezone character Timezone. Default is "Europe/Rome".
 #' @return Return sunrise time, suset time,length of day in hours decimal.
 #' @references  Teets, D.A. 2003. Predicting sunrise and sunset times. The College Mathematics Journal 34(4):317-321.
-#' @seealso \code{\link{weigthdry}}
 #'
 #' @author  Istituto di Biometeorologia Firenze Italy  Alfonso crisci \email{a.crisci@@ibimet.cnr.it} ASL LUCCA Marco Selmi \email{marco.selmi@@uslnordovest.toscana.it }
-#' @keywords  dry days
+#' @keywords  length of day
 #' 
 #' @import lubridate
 #' @export
 
 day_length<-function(dates,lon=11.10,lat=43.77,timezone="Europe/Rome"){
                      d=yday(as.Date(dates,tz=timezone));
-                     rad<-function(x)pi*x/180					   ## Internal function to convert degrees to radians
+                     rad<-function(x) pi*x/180					   ## Internal function to convert degrees to radians
                      R=6378 ##Radius of the earth (km)
                      epsilon=rad(23.45) ##Radians between the xy-plane and the ecliptic plane
                      L=rad(lat) ##Convert observer's latitude to radians
