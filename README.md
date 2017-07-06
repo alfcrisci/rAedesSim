@@ -15,7 +15,9 @@ An example of operative work-chain
 
 library(rAedesSim)
 
-# install the packages from CRAN install.packages(c("dygraph","XLConnect") if is necessary.
+# install the packages from CRAN if is necessary.
+
+if (!require(dygraph) || !require(dygraph) ) { install.packages(c("dygraph","XLConnect") }
 
 library(dygraph) # htmlwidget plots
 library(XLConnect) # excel writing
