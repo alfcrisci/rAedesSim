@@ -4,11 +4,12 @@
 \alias{biocontainer}
 \title{biocontainer}
 \usage{
-biocontainer(type = "Trap  REDLAV ITA", nrecipients = 50,
+biocontainer(type = "Trap  REDLAV ITA", nrecipients = 1,
   container_shape = 3, capacity = 1000, initVol = 750,
   frac_initVol = 0.75, surface_area = 50, underplate = FALSE,
   frac_underplate = 0, frac_covering = 0, lat = 43.5, lon = 11.27,
-  elevation = 100, CRS = "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs",
+  elevation = 100, timezone = "Europe/Rome",
+  CRS = "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs",
   sourcedata = NULL, meteodata = NULL, watermodel = NULL,
   watermodel_fit = FALSE, model_type = "gam", date_format = "YMD",
   field_delimiter = ",", ID = c("NA"), site_name = c("NA"))
@@ -30,15 +31,17 @@ biocontainer(type = "Trap  REDLAV ITA", nrecipients = 50,
 
 \item{underplate}{logical  Presence of underplate. Default is FALSE.}
 
-\item{frac_underplate}{numeric Fraction of underplate engaged ( 0-1) Default is 0.}
+\item{frac_underplate}{numeric Fraction of underplate engaged (0 - 1) Default is 0.}
 
-\item{frac_covering}{numeric Fraction of container covering  ( 0-1) Default is 0.}
+\item{frac_covering}{numeric Fraction of container covering  (0 - 1) Default is 0.}
 
 \item{lat}{numeric Mean geographical latitude of container location. Default is 43.5.}
 
 \item{lon}{numeric Mean geographical longitude of container location. Default is 11.27.}
 
 \item{elevation}{numeric  Mean elevation  of container location. Default is 100.}
+
+\item{timezone}{sring Timezone. Default is "Europe/Rome".}
 
 \item{CRS}{character Projection of coordinate in proj4 format.}
 
@@ -58,7 +61,7 @@ biocontainer(type = "Trap  REDLAV ITA", nrecipients = 50,
 
 \item{ID}{character ID of container's set.}
 
-\item{site_name}{character   Name of place or location.}
+\item{site_name}{character Name of place or location.}
 
 \item{daily_evap_loss}{numeric Volume of water losses daily due to evaporation. Default is 0.}
 

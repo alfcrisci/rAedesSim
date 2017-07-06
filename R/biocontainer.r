@@ -10,13 +10,14 @@
 #' @param frac_initVol numeric Fraction of volume present in trap/location. Default is 0.
 #' @param surface_area  numeric The water-air surface of container in squared centimeter (cmq).
 #' @param underplate  logical  Presence of underplate. Default is FALSE.
-#' @param frac_underplate numeric Fraction of underplate engaged ( 0-1) Default is 0.
+#' @param frac_underplate numeric Fraction of underplate engaged (0 - 1) Default is 0.
 #' @param daily_evap_loss numeric Volume of water losses daily due to evaporation. Default is 0.
-#' @param frac_covering numeric Fraction of container covering  ( 0-1) Default is 0.
+#' @param frac_covering numeric Fraction of container covering  (0 - 1) Default is 0.
 #' @param lat numeric Mean geographical latitude of container location. Default is 43.5. 
 #' @param lon numeric Mean geographical longitude of container location. Default is 11.27.
-#' @param CRS  character Projection of coordinate in proj4 format.
 #' @param elevation numeric  Mean elevation  of container location. Default is 100.
+#' @param CRS  character Projection of coordinate in proj4 format.
+#' @param timezone sring Timezone. Default is "Europe/Rome". 
 #' @param sourcedata dataframe  Or ascii file consisting in   Water temperature measurements. Fields required are dates ( YYYY-MM-DD) format, Daily mean of water tmedwater.
 #' @param meteodata object  rAedesim  object with the data useful for model water calibration.
 #' @param watermodel logical Statistical model oject ( gam - lm - glm).Default is NULL.
@@ -26,7 +27,7 @@
 #' @param field_delimiter character field delimiter of file. Default is comma ",". 
 #' @param timeseries object xts R Timeseries of data 
 #' @param ID  character ID of container's set.
-#' @param site_name character   Name of place or location.
+#' @param site_name character Name of place or location.
 #' @return biocontainer 
 #' @author  Istituto di Biometeorologia Firenze Italy  Alfonso crisci \email{a.crisci@@ibimet.cnr.it} ASL 2 LUCCA Marco Selmi \email{marco.selmi@@uslnordovest.toscana.it }
 #' @keywords  container
@@ -34,11 +35,12 @@
 #' @import sp
 #' @import mgcv
 #' @import xts
+#' @import lubridate
 #' @export
 
 
-biocontainer<-   function( type="Trap  REDLAV ITA",
-			                     nrecipients=50,
+biocontainer<-function( type="Trap  REDLAV ITA",
+			                     nrecipients=1,
 			                     container_shape=3,
 			                     capacity=1000,
 			                     initVol=750,
@@ -50,6 +52,7 @@ biocontainer<-   function( type="Trap  REDLAV ITA",
 			                     lat=43.5,
 			                     lon=11.27,
 			                     elevation=100,
+			                     timezone="Europe/Rome",
 			                     CRS="+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs",
 			                     sourcedata=NULL,
 			                     meteodata=NULL,
@@ -90,10 +93,7 @@ biocontainer<-   function( type="Trap  REDLAV ITA",
                                           { warning( "To fit a watermodel a meteodata object and a datasource of water temperatures are needed.")
 					  }	
 				
-				#################################################################################################################
-				  
-                               				  
-  
+			  
 				#################################################################################################################
 				# Instance an objects
 				
@@ -120,20 +120,20 @@ biocontainer<-   function( type="Trap  REDLAV ITA",
                    
 				      rownames(filedata)<-1:nrow(filedata)
 				
-				     filedata$daylength =day_length(as.Date(as.character(filedata$dates)),lon_geo,lat_geo)$daylength;
+				     filedata$daylength=day_length(as.Date(as.character(filedata$dates),tz=timezone),lon_geo,lat_geo)$daylength;
 				   
 				     full_ts = try(as.xts(zoo(data.frame(daylength=filedata$daylength,tmedwater=filedata$tmedwater),as.Date(as.character(filedata$dates)))))
 				
 				     if   (!exists("full_ts"))
 				         {
 				          stop( "Timeseries creation invalid! Check data and dates in data sources")
-			                  }
+			           }
 				
 				
 				###################################################################################################################
 				# Prepare 
 			   
-				    full_ts=merge.xts(full_ts,meteodata$timeseries)
+				    full_ts=merge.xts(full_ts, meteodata$timeseries)
 				    full_ts_df=na.omit(as.data.frame(full_ts))
 				    rownames(full_ts_df) <- NULL;
 				
@@ -170,6 +170,7 @@ biocontainer<-   function( type="Trap  REDLAV ITA",
 				               lat = lat_geo,
 				               lon = lon_geo,
 				               CRS = epgs4386,
+				               timezone=timezone,
 				               elevation = elevation,
 				               meteodata = meteodata,
 				               watermodel = watermodel,
@@ -203,9 +204,10 @@ biocontainer<-   function( type="Trap  REDLAV ITA",
 				               attr(object,"model_type")<-"Statistical model class used for data fitting"
 				               attr(object,"date_model")<-"Model creation date" 
 				               attr(object,"timeseries")<-"Timeseries object obtained from data"
+				               attr(object,"timezone")<-"Timezone"
 				               attr(object,"sp_obj")<-"SpatialPointDataFrame" 
 				               attr(object,"ID")<-"ID label of container set"
 				               attr(object,"site_name")<-"Name of sites"
-	                                       class(object) <-"biocontainer"
+	                     class(object) <-"biocontainer"
 				               return(object)
 }

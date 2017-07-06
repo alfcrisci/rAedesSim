@@ -7,7 +7,7 @@
 biometeo(meteo, i_biocontainer, startday = 1, deltatmax = 0,
   deltatmin = 0, deltatmed = 0, tresh_rain = 4, weigth_k = 5,
   CPPmin = 11.5, datemax = 110, bounddays = 10, varjd = 10,
-  truncated = FALSE)
+  truncated = FALSE, timezone = "Europe/Rome")
 }
 \arguments{
 \item{startday}{integer Index of date when  simulation starts. Default is 1.}
@@ -27,6 +27,8 @@ biometeo(meteo, i_biocontainer, startday = 1, deltatmax = 0,
 \item{varjd}{numeric Days of variance for  diapause emergency courbes. Default is 10.}
 
 \item{truncated}{logical Modeling with truncated gaussian respecting the limits. Default is FALSE.}
+
+\item{timezone}{character Timezone. Default is Europe/Rome.}
 
 \item{meteodata}{object rAedesim meteodata object.}
 

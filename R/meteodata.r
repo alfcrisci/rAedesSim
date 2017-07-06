@@ -1,6 +1,6 @@
 #' meteodata
 #'
-#' @description meteodata  is the function to store raw weather information in a S3 object in order to performs the simulation.
+#' @description meteodata is the function to store raw weather information in a S3 object in order to performs the simulation.
 #'
 #' @param station_name character name of station or location
 #' @param network  character name or project or network which data corresponds.
@@ -24,7 +24,8 @@
 #' @return meteodata
 #' @author  Istituto di Biometeorologia Firenze Italy  Alfonso crisci \email{a.crisci@@ibimet.cnr.it} ASL 2 LUCCA Marco Selmi \email{marco.selmi@@uslnordovest.toscana.it } 
 #' @keywords  metorological data 
-#' @import sp,lubidate
+#' @import sp
+#' @import lubridate
 #' 
 #' @export
 
@@ -43,7 +44,7 @@ meteodata<-function(station_name="Pisa San Giusto",
                     timeformat="daily",
                     sourcedata=NULL,
                     field_delimiter=",",
-		    timezone="Europe/Rome",
+                    timezone="Europe/Rome",
                     timeseries=NULL,
                     CRS="+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs"
 		    )
@@ -51,6 +52,7 @@ meteodata<-function(station_name="Pisa San Giusto",
                     		   
 				   #################################################################################################################
 				   # location conversion
+  
 				   epgs4386="+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs";
 				   splocation=data.frame(lon=lon,lat=lat)
 				   coordinates(splocation) <- c('lon','lat')
@@ -119,22 +121,23 @@ meteodata<-function(station_name="Pisa San Giusto",
 					  }  
 				   #################################################################################################################
 				   
-				   filemeteo$dates=lubridate::ymd(filemeteo$dates)
-                                   if ( date_format == "DMY") {filemeteo$dates=lubridate::dmy(filemeteo$dates)}
-                                   if ( date_format == "MDY") {filemeteo$dates=lubridate::mdy(filemeteo$dates)}
-                   
+				    filemeteo$dates=as.Date(ymd(filemeteo$dates),tz=timezone)
+				    if ( date_format == "DMY") {filemeteo$dates=dmy(filemeteo$dates)}
+				    if ( date_format == "MDY") {filemeteo$dates=mdy(filemeteo$dates)}
+				    filemeteo$dates=as.Date(filemeteo$dates,tz=timezone)
+				    
 				   #################################################################################################################
 				   rownames(filemeteo)<-1:nrow(filemeteo)
 				
 				        
-				   period=as.numeric(max(as.Date(filemeteo$dates,tz=timezone)))-min(as.Date(filemeteo$dates,tz=timezone))))
+				   period=as.numeric(max(as.Date(filemeteo$dates,tz=timezone)))-as.numeric(min(as.Date(filemeteo$dates,tz=timezone)))
 				    
 				   length_data_ini=nrow(filemeteo)
 				   row_na=nrow(filemeteo[!complete.cases(filemeteo),])
 				   perc_missing=(row_na/nrow(filemeteo))*100
 				   
 				   if ( period > length_data_ini-1) { 
-				                          fill_dates=data.frame(dates=seq(min(as.Date(filemeteo$dates)),max(as.Date(filemeteo$dates)),1));
+				                          fill_dates=data.frame(dates=seq(min(as.Date(filemeteo$dates,tz=timezone)),max(as.Date(filemeteo$dates,filemeteo$dates,tz=timezone)),1));
 				                          filemeteo=merge(fill_dates,filemeteo,by=c("dates"),all = T)
 				                          }
 				   
@@ -143,7 +146,7 @@ meteodata<-function(station_name="Pisa San Giusto",
 				   #################################################################################################################
 				  
 				   if (period < (length_data_ini-1)) { 
-				     stop( "Data source is not correcly time indexed! Suspect date duplicates.")
+				       stop( "Data source is not correcly time indexed! Suspect date duplicates.")
 				   }				  
 
 				   
@@ -155,8 +158,7 @@ meteodata<-function(station_name="Pisa San Giusto",
 				   
 				   if ( is.null(timeseries) )
 				   {
-				   ts_zoo=try(as.xts(zoo(filemeteo[variables],as.Date(as.character(filemeteo$dates)))))
-				   
+				    ts_zoo=try(as.xts(zoo(filemeteo[variables],as.Date(as.character(filemeteo$dates)))))
 				   }
 				   
 				   if ( !exists("ts_zoo"))
@@ -190,35 +192,35 @@ meteodata<-function(station_name="Pisa San Giusto",
 				                  continuity=continuity,
 				                  perc_missing_data=perc_missing,
 				                  timeseries=ts_zoo,
-						  timezone=timezone,
+				                  timezone=timezone,
 				                  sp_obj=newsp)
- 
-                 attr(object,"station_name") <- "Name of station"
-                 attr(object,"network") <- "Network of station"
-                 attr(object,"data_type")<-"Station Type"
-                 attr(object,"standard")<-"Data class or relative reference standard"
-                 attr(object,"data_provider")<-"Istitution or Private data manager"
-                 attr(object,"data_maintainer")<-"Name or contact of data maintainer"
-                 attr(object,"data_licence")<-"Licence of data"
-                 attr(object,"lat")<-"Latitude in decimal degrees. Datum WGS 84"
-                 attr(object,"lon")<-"Longitude in decimal degrees . Datum WGS 84"	
-                 attr(object,"CRS")<-"Projection used for the coordinate in proj4 string format"	
-                 attr(object,"elevation")<-"Elevation (m)"	
-                 attr(object,"timeformat")<-"Period of aggregation"
-                 attr(object,"tmed")<-"Mean daily temperature"
-                 attr(object,"tmax")<-"Maximum daily temperature"
-                 attr(object,"tmin")<-"Minimum daily temperature"
-                 attr(object,"urel")<-"Relative humidity daily average"
-                 attr(object,"prec")<-"Rainfall cumulated in a day"
-                 attr(object,"dates")<-"Dates of meteorological data matrix"
-                 attr(object,"length_data_ini")<-"Initial data length of raw data"
-                 attr(object,"ndays")<-"Number of days"
-                 attr(object,"daylenght")<-"Day length for each date"
-                 attr(object,"continuity")<-"If the temporal continuity of raw data is detected"
-                 attr(object,"perc_missing_data")<-"Percentage of missing values"
-                 attr(object,"timeseries")<-"Data timeseries as R xts object"
+				   
+				   attr(object,"station_name") <- "Name of station"
+           attr(object,"network") <- "Network of station"
+           attr(object,"data_type")<-"Station Type"
+           attr(object,"standard")<-"Data class or relative reference standard"
+           attr(object,"data_provider")<-"Istitution or Private data manager"
+           attr(object,"data_maintainer")<-"Name or contact of data maintainer"
+           attr(object,"data_licence")<-"Licence of data"
+           attr(object,"lat")<-"Latitude in decimal degrees. Datum WGS 84"
+           attr(object,"lon")<-"Longitude in decimal degrees . Datum WGS 84"	
+           attr(object,"CRS")<-"Projection used for the coordinate in proj4 string format"	
+           attr(object,"elevation")<-"Elevation (m)"	
+           attr(object,"timeformat")<-"Period of aggregation"
+           attr(object,"tmed")<-"Mean daily temperature"
+           attr(object,"tmax")<-"Maximum daily temperature"
+           attr(object,"tmin")<-"Minimum daily temperature"
+           attr(object,"urel")<-"Relative humidity daily average"
+           attr(object,"prec")<-"Rainfall cumulated in a day"
+           attr(object,"dates")<-"Dates of meteorological data matrix"
+           attr(object,"length_data_ini")<-"Initial data length of raw data"
+           attr(object,"ndays")<-"Number of days"
+           attr(object,"daylenght")<-"Day length for each date"
+           attr(object,"continuity")<-"If the temporal continuity of raw data is detected"
+           attr(object,"perc_missing_data")<-"Percentage of missing values"
+           attr(object,"timeseries")<-"Data timeseries as R xts object"
 	         attr(object,"timezone")<-"Timezone"
-                 attr(object,"sp_obj")<-"SpatialPointDataFrame"  
-                 class(object) <-"meteodata"
-                 return(object)
+           attr(object,"sp_obj")<-"SpatialPointDataFrame"  
+           class(object) <-"meteodata"
+           return(object)
 }

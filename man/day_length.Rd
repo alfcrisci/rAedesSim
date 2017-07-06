@@ -4,14 +4,16 @@
 \alias{day_length}
 \title{day_length}
 \usage{
-day_length(dates, lon = 11.1, lat = 43.77)
+day_length(dates, lon = 11.1, lat = 43.77, timezone = "Europe/Rome")
 }
 \arguments{
 \item{dates}{Date in  YMD format}
 
-\item{lon}{Numerical Geographical Longitude of site in decimal degrees (negative == West) . Default is 11.10.}
+\item{lon}{numeric Geographical Longitude of site in decimal degrees (negative == West) . Default is 11.10.}
 
-\item{lat}{Numeric Geographical Latitude of site in decimal degrees. Default is 43.77.}
+\item{lat}{numeric Geographical Latitude of site in decimal degrees. Default is 43.77.}
+
+\item{timezone}{character Timezone. Default is "Europe/Rome".}
 }
 \value{
 Return sunrise time, suset time,length of day in hours decimal.
@@ -22,11 +24,9 @@ Calculate the raw lenght of day in hours related to the date
 \references{
 Teets, D.A. 2003. Predicting sunrise and sunset times. The College Mathematics Journal 34(4):317-321.
 }
-\seealso{
-\code{\link{weigthdry}}
-}
 \author{
 Istituto di Biometeorologia Firenze Italy  Alfonso crisci \email{a.crisci@ibimet.cnr.it} ASL LUCCA Marco Selmi \email{marco.selmi@uslnordovest.toscana.it }
 }
-\keyword{days}
-\keyword{dry}
+\keyword{day}
+\keyword{length}
+\keyword{of}

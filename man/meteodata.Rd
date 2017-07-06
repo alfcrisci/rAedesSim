@@ -9,7 +9,7 @@ meteodata(station_name = "Pisa San Giusto",
   standard = "SYREP", data_provider = "IBIMET CNR", data_maintainer = "",
   data_licence = "", date_format = "YMD", lat = 43, lon = 11,
   elevation = 40, timeformat = "daily", sourcedata = NULL,
-  field_delimiter = ",", timeseries = NULL,
+  field_delimiter = ",", timezone = "Europe/Rome", timeseries = NULL,
   CRS = "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
 }
 \arguments{
@@ -39,6 +39,8 @@ meteodata(station_name = "Pisa San Giusto",
 
 \item{field_delimiter}{chararter field delimiter of file. Default is comma ",".}
 
+\item{timezone}{sring Timezone. Default is "Europe/Rome".}
+
 \item{timeseries}{object xts R Timeseries of data}
 
 \item{CRS}{character Projection of coordinates in proj4 format.}
@@ -49,7 +51,7 @@ meteodata(station_name = "Pisa San Giusto",
 meteodata
 }
 \description{
-meteodata  is the function to store raw weather information in a S3 object in order to performs the simulation.
+meteodata is the function to store raw weather information in a S3 object in order to performs the simulation.
 }
 \author{
 Istituto di Biometeorologia Firenze Italy  Alfonso crisci \email{a.crisci@ibimet.cnr.it} ASL 2 LUCCA Marco Selmi \email{marco.selmi@uslnordovest.toscana.it }

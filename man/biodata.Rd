@@ -10,7 +10,8 @@ biodata(ID = "", parameter_definition = "Eggs", units = "Integer count",
   phenology = "Eggs Hatching", obs_standard = TRUE, sourcedata = NULL,
   data_provider = "ASL Lucca",
   data_maintaner = "Marco Selmi - m.selmi@usl2.toscana.it",
-  data_licence = "", field_delimiter = ",", lat, lon, elevation,
+  data_licence = "", field_delimiter = ",", lat, lon,
+  timezone = "Europe/Rome",
   CRS = "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs", geonotes = "",
   urban = TRUE, nasa_radiance = NULL, census_level = NULL)
 }
@@ -49,7 +50,7 @@ biodata(ID = "", parameter_definition = "Eggs", units = "Integer count",
 
 \item{lon}{numeric longitude coordinates of  where data are collected.}
 
-\item{elevation}{numeric Elevation of the Default is 40.}
+\item{timezone}{character Timezone. Default is Europe/Rome.}
 
 \item{CRS}{character Projection of coordinate in proj4 format.}
 
@@ -62,6 +63,8 @@ biodata(ID = "", parameter_definition = "Eggs", units = "Integer count",
 \item{census_level}{numeric Population density estimation by EEA data sources.}
 
 \item{sourcedata}{data.frame Or matrix or ascii file of raw data. Field required are dates and parameter.}
+
+\item{elevation}{numeric Elevation of the Default is 40.}
 }
 \value{
 object  Return a rAedesim object of class biodata
