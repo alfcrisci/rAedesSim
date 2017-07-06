@@ -68,47 +68,71 @@ C_della_Pescaia_P4_meteo_2012=redlav_2012_meteo[[4]]
 ##################################################################################################
 # How to perform a simulation. 
 
-iniegg=50 # winter diapause initial eggs
+iniegg=400 # winter diapause initial eggs
 maxjd=140 # maximal jd of diapausant eggs exclosion.
 varianceday=15 # temporal variance of diapausant eggs exclosion courbe  
 inistep=15 # first steps used for parameter fitting.
+mean_egg=85 # mean eggs given by gonotrophyc cycle
 starting_day_simulation=61 # 1 march for italy
 
-#######################################################################################################################
-# The information to assess local environmental parameters linked to the water are contained in biocontainer object.
-# Hence biometeo objects merge the information of geograpical/topographical location features and meteorological data obtained 
-# from field monitoring or simulated by using weather/environmental models.
-
-
-C_Pescaia_P4_bio_tombino=biometeo(C_della_Pescaia_P4_meteo_2012,
-                                   startday=starting_day_simulation,
-				   i_biocontainer_tomb)
-
-C_Pescaia_P4_bio_trap=biometeo(C_della_Pescaia_P4_meteo_2012,
-                                startday=starting_day_simulation,
-				i_biocontainer_trap)
 
 ini_population=biopopulation(eggs=0,larvae=0,pupae=0,adults=0,eggs_diap=iniegg)
 
+
+#######################################################################################################################
+# The information to assess local environmental parameters linked to the water are contained in biocontainer object.
+# Hence biometeo objects merge the information of geograpical/topographical location features and meteorological 
+# data were obtained from field monitoring orsimulated by using a weather/environmental local area model.
+
+
+C_Pescaia_P4_bio_tombino=biometeo(C_della_Pescaia_P4_meteo_2012,
+                                  i_biocontainer_tomb,
+                                  startday = starting_day_simulation,
+                                  datemax=maxjd,
+                                  varjd=varianceday)
+
+C_Pescaia_P4_bio_trap=biometeo(C_della_Pescaia_P4_meteo_2012,
+                               i_biocontainer_trap,
+                               startday = starting_day_simulation,
+                               datemax=maxjd,
+                               varjd=varianceday)
+
+
+#########################################################################################################
 guess_simulation_tomb=check_fit_initial(C_Pescaia_P4_bio_tombino,
-                                        C_della_Pescaia_P4_monitoring,
+                                        monitor_temp,
                                         i_biocontainer_tomb,
-                                        larv_alpha=0.5,
-                                        adu_alpha=5,
+                                        larv_alpha=0.8,
+                                        adu_alpha=2,
                                         eggs_diap=iniegg,
-                                        egn=95,
+                                        egn=85,
+                                        Ndayscenario_prim=140,
+                                        Ndayscenario_aut=130,
                                         ini_rmse = 1,
-                                        end_rmse=15
-                                        )
+                                        end_rmse=15,
+                                        deltatmed_prim=3,
+                                        deltawater_prim=3,
+                                        deltatmed_aut=3,
+                                        deltawater_aut=3
+)
+
 
 
 guess_simulation_tomb$resfig_all
+```
 
+
+
+
+<iframe width="560" height="315" src="http://www.youtube.com/embed/EKoxLxzWNOk" frameborder="0" allowfullscreen="allowfullscreen"></iframe>
+
+
+```R
 
 simulation=biomodel(i_biometeo=C_Pescaia_P4_bio_tombino,
                     i_biocontainer=i_biocontainer_tomb,                            
                     i_biopopulation=ini_population,
-                    i_bioparameters= bioparameters(alfa_l=0.5,alfa_a=5)
+                    i_bioparameters= bioparameters(alfa_l=0.8,alfa_a=5)
                     )
 
 
