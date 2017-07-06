@@ -14,22 +14,20 @@ An example of operative work-chain
 ```R
 library(rAedesSim)
 
-#################################################################################################
-# Load my meteorological data obtained by Weather Local Model simulation for 2012 year
-
+###########################################################################################################################
+# Load some meteorological data obtained by Weather Local Model simulations for 2012 in REDLAV coastal locations in Tuscany.
 
 data("redlav_2012_meteo")
 data("redlav_2012_monitoring")
 
-
 #################################################################################################
-# Load different weather water models respectively for different mosquitos habitat trap as (a) traps and (b) tombino as manhole.
+# Load different weather water models respectively for different mosquitos habitat trap as (a) standard recipients and (b) tombino as manhole.
  
 data(trap_tosc_wmodel)
 data(tombino_tosc_wmodel)
 
 #################################################################################################
-# Create a two habitat and define a BS breeding site number ( nrecipients=1 - rAedesSim biocontainer ).
+# Create biocontainer objects BS breeding site number ( nrecipients=1 - rAedesSim biocontainer ).
 # Load an opportune model to assess water temperature from weather data. watermodel object is 
 # a lm/gma model  with formula = tmedwater ~ daylength + tmed (+ tmax + tmin).  Length of day and mean temperature are required.
 
