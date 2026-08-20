@@ -9,7 +9,7 @@ Author: Alfonso Crisci <a.crisci@ibimet.cnr.it> Marco Selmi
     <messeri@toscana.lamma.rete.it> Piero Manfredi
     <piero.manfredi@unipi.it>
 Maintainer: Alfonso Crisci <a.crisci@ibimet.cnr.it>
-Depends: deSolve,xts,lubridate,sp,leaflet,mgcv,zoo,dygraphs,truncnorm,aTSA,rms.gof
-Imports: truncnorm,aTSA,rms.gof
-Packaged: 2015-03-04 13:18:23 UTC; Alf
+Depends: deSolve,xts,lubridate,sp,leaflet,mgcv,zoo,dygraphs,truncnorm,aTSA
+Imports: truncnorm,aTSA
+Packaged: 2026-08-20 11:12:23 UTC; Alf
 RoxygenNote: 6.0.1
